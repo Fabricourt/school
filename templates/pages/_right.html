@@ -1,0 +1,92 @@
+{% load static %}
+
+<div id="onlineclass"></div>
+    <div class='w3-hide-small'>
+      
+      {% include 'pages/_heading.html' %}
+    </div>
+
+    
+      <!--grade 8-->
+        {% if user.is_grade8 %}
+        {% for today in todays %}
+        {% if today.is_grade8 %}
+          {% include 'pages/_todaylesson.html' %}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+      <!--grade 7-->
+        {% if user.is_grade7 %}
+        {% for today in todays %}
+        {% if today.is_grade7 %}
+          {% include 'pages/_todaylesson.html' %}
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+        <!--grade 6-->
+          {% if user.is_grade6 %}
+          {% for today in todays %}
+          {% if today.is_grade6 %}
+            {% include 'pages/_todaylesson.html' %}
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+
+        <!--grade 5-->
+          {% if user.is_grade5 %}
+          {% for today in todays %}
+          {% if today.is_grade5 %}
+            {% include 'pages/_todaylesson.html' %}
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+
+        <!--grade 4-->
+          {% if user.is_grade4 %}
+          {% for today in todays %}
+          {% if today.is_grade4 %}
+            {% include 'pages/_todaylesson.html' %}
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+
+        <!--grade 3-->
+          {% if user.is_grade3 %}
+          {% for today in todays %}
+          {% if today.is_grade3 %}
+            {% include 'pages/_todaylesson.html' %}
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+
+        <!--grade 2-->
+          {% if user.is_grade2 %}
+          {% for today in todays %}
+          {% if today.is_grade2 %}
+            {% include 'pages/_todaylesson.html' %}
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+
+        <!--grade 1-->
+          {% if user.is_grade1 %}
+          {% for today in todays %}
+          {% if today.is_grade1 %}
+            {% include 'pages/_todaylesson.html' %}
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+      
+<!--answers -->
+
+  <div class="w3-hide-large w3-hide-medium">
+    {% include 'pages/_answers.html' %}
+  </div>
+<!--end answers -->
+
+<!--subjects-->
+  {% include 'subjects/_subjectnav.html' %}
+<!--end subjects-->
+

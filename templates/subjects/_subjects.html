@@ -1,0 +1,73 @@
+{% load static %}
+
+    {% if user.is_grade8 %}  
+        {% for subject in subjects %}
+            {% if subject.is_grade8 %}
+                <a href="#{{subject}}" class="w3-bar-item w3-button">{{subject}}</a>
+            {% endif %}
+        {% endfor %}
+  {% endif %}
+
+
+  {% if user.is_grade7 %}  
+  {% for subject in subjects %}
+      {% if subject.is_grade7 %}
+          <a href="#{{subject}}" class="w3-bar-item w3-button">{{subject}}</a>
+      {% endif %}
+  {% endfor %}
+{% endif %}
+
+
+{% if user.is_grade6 %}  
+{% for subject in subjects %}
+    {% if subject.is_grade6 %}
+        <a href="#{{subject}}" class="w3-bar-item w3-button">{{subject}}</a>
+    {% endif %}
+{% endfor %}
+{% endif %}
+
+
+{% if user.is_grade5 %}  
+{% for subject in subjects %}
+    {% if subject.is_grade5 %}
+        <a href="#{{subject}}" class="w3-bar-item w3-button">{{subject}}</a>
+    {% endif %}
+{% endfor %}
+{% endif %}
+
+
+{% if user.is_grade4 %}  
+{% for subject in subjects %}
+    {% if subject.is_grade4 %}
+        <a href="#{{subject}}" class="w3-bar-item w3-button">{{subject}}</a>
+    {% endif %}
+{% endfor %}
+{% endif %}
+
+
+{% if user.is_grade3 %}  
+{% for subject in subjects %}
+    {% if subject.is_grade3 %}
+        <a href="#{{subject}}" class="w3-bar-item w3-button">{{subject}}</a>
+    {% endif %}
+{% endfor %}
+{% endif %}
+
+
+{% if user.is_grade2 %}  
+{% for subject in subjects %}
+    {% if subject.is_grade2 %}
+        <a href="#{{subject}}" class="w3-bar-item w3-button">{{subject}}</a>
+    {% endif %}
+{% endfor %}
+{% endif %}
+
+{% if user.is_grade1 %}  
+{% for subject in subjects %}
+    {% if subject.is_grade1 %}
+        <a href="#{{subject}}" class="w3-bar-item w3-button">{{subject}}</a>
+    {% endif %}
+{% endfor %}
+{% endif %}
+
+

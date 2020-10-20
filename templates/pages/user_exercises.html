@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block title %} | Teacher_Exercises {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<h1>Exercises</h1>
+<ol>
+
+    {% for exercise in exercises %}
+  
+    <li class="w3-text-green">{{exercise}}
+    
+        <ol>
+            {% for answer in answers %} 
+            <a href="{% url 'answer' answer.id %}">
+                <li>{{answer.name}} <span class="w3-right w3-small"> {{answer.created_on}} <span class="w3-text-black">// {{exercise}}</span></span>
+                
+                </li>
+            </a>
+              
+
+                {% endfor %}
+
+        </ol>
+    
+    </li>
+</a>
+    {% endfor %}
+
+</ol>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block title %} |  Homework|{{exercise|capfirst}} {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="">
+
+  <div class="w3-row-padding" >
+    <div class="w3-margin-bottom ">
+      <a href="{% url 'class-detail' exercise.classname.slug  %}" class=" btn w3-hover-green {{exercise.subject.bg_color}}">
+        <span>Go Back To Classroom</span> </a>
+    </div>
+    <div class="w3-col l8">
+     <div class=" w3-margin-bottom">
+      {% if new_answer %}
+      <div class="alert alert-success " role="alert">
+       <center class="w3-xlarge w3-center">
+        <br><br> 
+        Your Answers have been sent successfully Thank you</center>
+        <br>
+        <br><br>
+      </div>
+      {% else %}
+      <div class="w3-opacity-min card w3-round-large w3-margin-bottom w3-black">
+            <h1 class="{{exercise.subject.text_color}}  w3-center w3-border-bottom {{exercise.subject.border_color}}"> {{ exercise.title }} </h1>
+            <p class=" text-muted ">
+              <span class="w3-margin">
+                {{ exercise.teacher }} | {{ exercise.created_on }} |
+                                   {{exercise.subject}} |{{exercise.topic}}
+              </span>
+            </p>
+      </div>
+      <div class="w3-light-grey card w3-round-large ">
+            {% if exercise.file_name %}
+            <div class="w3-container  card-body">
+                <a href="{{exercise.file_name.url}}">
+                    <button class="w3-round  w3-hover-emerald  {{exercise.subject.bg_color}} w3-block w3-panel w3-large">
+                        <span class="w3-xlarge"> Download Exercise File</span>
+                    </button>
+                </a>
+            </div>
+            {% endif %}
+
+            {% if exercise.questions %}
+            <div class="card-body w3-light-gray ">{{ exercise.questions | safe }}</div>
+            {% endif %}
+          </div>
+          <br>
+            <div class="card w3-light-gray w3-round-large">
+                <h3 class=" w3-center {{exercise.subject.bg_color}}">
+                <span class="w3-margin w3-padding">
+                  Upload, Paste or Type Your Answers below
+                </span>
+                </h3>
+                <div class="card-body">
+                <form method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
+                  <div style="width:100%;">{{ answer_form|crispy }}</div>
+                  {% csrf_token %}
+                  <button type="submit" class="btn {{exercise.subject.bg_color}} w3-panel w3-block btn-lg" style="width:100%">Submit</button>
+                </form>
+               </div>
+              </div>
+
+      </div>
+    </div>
+
+    <div class="w3-col l4">
+      <div class="w3-border-left  w3-border-white w3-container w3-round-large  w3-padding {{exercise.subject.bg_color}}">
+       <div class="w3-padding-small">
+        <!-- answerss -->
+        {% with answers.count as total_answers %}
+        <h3 class="w3-card-4 w3-padding">
+          <span class="w3-margin">{{ total_answers }} Marked Exercises</span>
+        </h3>
+
+        <p>
+          {% endwith %}
+
+        </p>
+        <ol class="w3-margin w3-padding">
+        {% for answer in answers %}
+      <li class="answers w3-text-white w3-padding w3-border w3-light-gray w3-hover-white w3-round-large w3-hover-shadow w3-margin-bottom"">
+        <div class="w3-text-black" >
+          <span class="font-weight-bold">
+           <a href="{% url 'answer' answer.id %}" class="w3-hover-text-green">{{ answer.name.first_name}} {{ answer.name.last_name }} <br>
+            <span class=" text-muted font-weight-normal">
+              {{ answer.created_on }}
+            </span>
+          </a> 
+        </span>
+ 
+        </div>
+      </li>
+        {% endfor %}
+      </ol>
+      </div>
+    </div>
+    {% endif %}
+   <br>
+
+    </div>
+  </div>
+</div>
+
+<footer class="w3-theme-d5">
+  <div class=" w3-margin">
+    <a href="{% url 'class-detail' exercise.classname.slug  %}" class=" w3-teal w3-hover-green btn">Go Back To Classroom </a>
+  </div>
+</footer>
+
+{% endblock %}

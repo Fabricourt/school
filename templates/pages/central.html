@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %} | {{user.first_name}}  {{user.last_name}} {% endblock %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+    {% if user.is_student %}
+        {% if user.is_grade1 %}
+            {% include 'pages/grade_1.html' %}
+        {% endif %}
+
+        {% if user.is_grade2 %}
+            {% include 'pages/grade_2.html' %}
+        {% endif %}
+
+        {% if user.is_grade3 %}
+            {% include 'pages/grade_3.html' %}
+        {% endif %}
+
+        {% if user.is_grade4 %}
+            {% include 'pages/grade_4.html' %}
+        {% endif %}
+
+        {% if user.is_grade5 %}
+            {% include 'pages/grade_5.html' %}
+        {% endif %}
+
+        {% if user.is_grade6 %}
+            {% include 'pages/grade_6.html' %}
+        {% endif %}
+
+        {% if user.is_grade7 %}
+            {% include 'pages/grade_7.html' %}
+        {% endif %}
+        
+        {% if user.is_grade8 %}
+            {% include 'pages/grade_8.html' %}
+        {% endif %}
+        
+    {% endif %}
+
+    {% if user.is_parent %}
+        {% include 'pages/parentsarea.html' %}
+    {% endif %}
+
+
+    {% if user.is_teacher %}
+        {% include 'pages/teachersarea.html' %}
+    {% endif %}
+
+
+    {% endif %}
+{% endblock %}

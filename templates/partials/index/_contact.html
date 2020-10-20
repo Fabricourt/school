@@ -1,0 +1,71 @@
+{% load static %}
+<div class="contact-map-w3l">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.9831744780035!2d-122.42307938460873!3d37.79043407975659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858094d19836bf%3A0x154e077aaa8cef6a!2sComplete+Business+Services!5e0!3m2!1sen!2sin!4v1497343604791"></iframe>
+</div>
+    <div class="contact-w3ls">
+        <div class="container">
+        <div class="get-top-agileits-w3layouts">
+            <h2><a href="{% url 'central' %}">Triza Academy</a></h2>
+            <ul>
+                <li><a href="#about" class="scroll">About</a></li>
+                <li><a href="#team" class="scroll">Team</a></li>
+                <li><a href="#services" class="scroll">Services</a></li>
+                <li><a href="#clients" class="scroll">Parents</a></li>
+                <li><a href="#gallery" class="scroll">Gallery</a></li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+            <div class="w3layouts-heading" id="contact">
+                <h3 class="white-w3layouts">Get in touch <span>with us</span></h3>
+                <p>You can also use a quick contact form below or visit our office personally.</p><br>
+            </div>
+        </div>
+    <div class="contact-agile">
+            <div class="contact-middle">
+                <h4>Say Hello</h4>
+                <form method='POST' action="{% url 'contact' %}"  enctype='multipart/form-data'> {% csrf_token %}
+                <div class="form-agileinfo">
+                <div class="input-w3ls">
+                    <p>Name</p>
+                    <input name="name" type="text" class="" id="name" placeholder="Full Name" required="" />
+                </div>
+                <div class="input-w3ls">
+                    <p>Email</p>
+                    <input name="email" type="text"  id="email" pattern="[^ @]*@[^ @]*" placeholder="E-Mail Address" required="" />
+                </div>
+                </div>
+                <div class="form-agileits-w3layouts">
+                <p>Message</p>
+                <textarea name="message"  type="text" id="message" placeholder="Your Message" required="">
+
+                </textarea>
+                        <input type="submit"   value="Send message">
+                </div>
+                <div class="clearfix"></div>
+                </form>
+            </div>
+            <div class="contact-left">
+                <h6>Contact Info</h6>
+                {% for address in addresss %}
+                <div class="address-w3-agile"><i class="fa fa-location-arrow" aria-hidden="true"></i><p>{{address.title}}</p><div class="clearfix"></div></div>
+                <div class="address-w3-agile"><i class="fa fa-mobile" aria-hidden="true"></i><p>{{address.phone}} </br>{{address.phone_1}}</p><div class="clearfix"></div></div>
+                <div class="address-w3-agile"><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:info@example.com">{{address.email}}</a><div class="clearfix"></div></div>
+                <ul class="social-icons">
+                    {% if address.facebook %}
+                    <li><a href="{{address.facebook}}" class="fb"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                    {% if address.twitter %}
+                    <li><a href="{{address.twitter}}" class="twt"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                    {% if address.youtube %}
+                    <li><a href="{{address.youtube}}" class="ggl"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                    {% if address.instagram %}
+                    <li><a href="{{address.instragram}}" class="lin"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                </ul>
+                {% endfor %}
+                <div class="clearfix"></div>
+            </div>
+    </div>
+    </div>

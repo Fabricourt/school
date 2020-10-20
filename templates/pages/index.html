@@ -1,0 +1,234 @@
+{% load static %}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Triza Academy | Welcome </title>
+<!-- Favicon -->
+<link href="{% static 'img/logos.png'  %}" class="w3-circle"  styel="width:80px; height:80px;" rel="shortcut icon"/>
+  
+<!-- Meta-Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Proficient Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //Meta-Tags -->
+<!-- Style Sheet -->
+<link href="{% static 'css/css/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static 'css/css/font-awesome.css' %}" rel="stylesheet"> 
+<link rel="stylesheet" href="{% static 'css/css/flexslider.css' %}" type="text/css" media="all" />
+<link href="{% static 'css/css/simpleLightbox.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<!-- Custom css -->
+<link rel="stylesheet" href="{% static 'css/w3.css' %}">
+
+<!--W3css colors-->
+<link rel="stylesheet" href="{% static 'css/w3-highway.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3-ios.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3-signal.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3-flat.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3-win8.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3-metro.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3-vivid.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3-safety.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3-food.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3-camo.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3-2019.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3-2018.css' %}">
+<link rel="stylesheet" href="{% static 'css/w3-2017.css' %}">
+<!-- //Style Sheet -->
+<!--fonts-->
+<link href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300,400,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+<!--//fonts-->
+
+</head>
+<body>
+<!-- Header -->
+<div class="banner-agileits  " id="home" >
+	<!-- Navbar -->
+	<nav class="navbar navbar-default w3layouts agileits hover-effect  ">
+		<div class="container">
+
+			<div class="navbar-header w3layouts agileits w3-margin-top w3-orange">
+
+			</div>
+
+			<div id="navbar" class="navbar-collapse w3layouts agileits   navbar-right collapse">
+				<ul class="nav w3layouts agileits  w3-opacity-min navbar-nav w3-border-orange   ">
+					
+					<li><a href="#about" class="scroll w3-flat-asbestos w3-text-white w3-card-4   w3-tag">About</a></li>
+					<li><a href="#team" class="scroll  w3-flat-asbestos w3-text-white w3-card-4   w3-tag">Leadership</a></li>
+					<li><a href="#services" class="scroll w3-flat-asbestos w3-text-white w3-card-4  w3-tag">Services</a></li>
+					<li><a href="#clients" class="scroll  w3-flat-asbestos w3-text-white w3-card-4   w3-tag">Parents</a></li>
+					<li><a href="#gallery" class="scroll w3-flat-asbestos w3-text-white w3-card-4  w3-tag">Gallery</a></li>
+					
+				</ul>
+
+			</div>
+		{% include 'partials/_alerts.html' %}
+
+		</div>
+	</nav>
+	<!-- //Navbar -->
+
+	<!-- topbanner -->
+	{% include 'partials/index/_topbanner.html' %}
+	<!--//topbanner-->
+
+	<!-- Slider -->
+	{% include 'partials/index/_slides.html' %}
+	<!-- //Slider -->
+</div>
+<!-- //Header -->
+
+<!-- banner-bottom -->
+	{% include 'partials/index/_bottombanner.html' %}
+<!-- //banner-bottom -->
+
+<!-- about -->
+ 	{% include 'partials/index/_about.html' %}
+<!-- //about-bottom -->
+<!-- //about -->
+
+<!-- Team -->
+	{% include 'partials/index/_team.html' %}
+<!-- /Team -->
+
+<!-- services -->
+<div class="">
+	{% include 'partials/index/_services.html' %}
+</div>
+<!-- //services -->
+
+<!--testimonials-->
+`	{% include 'partials/index/_testmonials.html' %}
+<!--//testimonials-->
+
+
+<!--gallery-->
+	{% include 'partials/index/_gallery.html' %}
+<!--//gallery-->
+
+
+<!--contact-->
+	{% include 'partials/index/_contact.html' %}
+<!--//contact-->
+
+<!--footer-->
+	{% include 'partials/index/_footer.html' %}
+<!--//footer-->	
+
+<!-- js -->
+<script type="text/javascript" src="{% static 'css/js/jquery-2.1.4.min.js' %}"></script>
+<!-- Slider-JavaScript -->
+			<script src="{% static 'css/js/responsiveslides.min.js' %}"></script>
+			<script>
+				$(function () {
+					$("#slider, #slider1").responsiveSlides({
+						auto: true,
+						nav: true,
+						speed: 1500,
+						namespace: "callbacks",
+						pager: false,
+					});
+				});
+			</script>
+		<!-- //Slider-JavaScript -->
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="{% static 'css/js/move-top.js' %}"></script>
+<script type="text/javascript" src="{% static 'css/js/easing.js' %}"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+<!-- FlexSlider-JavaScript -->
+	<script defer src="{% static 'css/js/jquery.flexslider.js' %}"></script>
+							<script type="text/javascript">
+							$(window).load(function(){
+							  $('.flexslider').flexslider({
+								animation: "slide",
+								start: function(slider){
+								  $('body').removeClass('loading');
+								}
+							  });
+							});
+						  </script>
+	<!-- //FlexSlider-JavaScript -->
+<!-- about-section-flexisel-slider-->
+	<script type="text/javascript">
+							$(window).load(function() {
+								$("#flexiselDemo1").flexisel({
+									visibleItems:3,
+									animationSpeed: 1000,
+									autoPlay: true,
+									autoPlaySpeed: 3000,    		
+									pauseOnHover: true,
+									enableResponsiveBreakpoints: true,
+									responsiveBreakpoints: { 
+										portrait: { 
+											changePoint:480,
+											visibleItems: 1
+										}, 
+										landscape: { 
+											changePoint:640,
+											visibleItems:2
+										},
+										tablet: { 
+											changePoint:768,
+											visibleItems: 2
+										}
+									}
+								});
+								
+							});
+					</script>
+					<script type="text/javascript" src="{% static 'css/js/jquery.flexisel.js' %}"></script>
+<!-- //about-section-flexisel-slider-->
+<!-- Gallery-script -->
+<script src="{% static 'css/js/simpleLightbox.js' %}"></script>
+	<script>
+		$('.w3_agile_gallery_grid a').simpleLightbox();
+	</script>
+<!-- //Gallery-script -->
+<a href="#home" class="scroll" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<!-- Bootstrap -->
+<script type="text/javascript" src="{% static 'css/js/bootstrap-3.1.1.min.js' %}"></script>
+<!-- //Bootstrap -->
+<!--fontawesome-->
+<script src="{% static 'js/fontawesome.js' %}"></script>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<!--//fontawesome-->
+</body>
+</html>

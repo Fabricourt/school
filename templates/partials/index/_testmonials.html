@@ -1,0 +1,104 @@
+{% load static %}
+<style>
+	.mySlides {display:none;}
+	</style>
+<div class="clients  " id="clients">
+	<div class=" col-md-12 clients-left w3-white">
+		<div class="w3layouts-heading w3-white">
+			<h3 class="white-w3layouts w3-padding-32 w3-text-blue">Some feedback from our  <span class='w3-tag w3-flat-midnight-blue'>PARENTS</span></h3>
+			
+		</div>
+		
+	</div>
+</div>	
+<section class="" id="clients">
+	<div class=" w3-row" >
+		<div class="w3-col l7 m7 s12" width="360px">
+			{% for testmonial in testmonials %}
+				<div class="w3-container mySlides w3-animate-fade w3-row  w3-padding-64">
+					
+					<div class=" w3-padding-32">
+					<div class="w3-col l3 m3 s12">
+						<img src="{{ testmonial.parent_name.name.image.url}}" alt="" class="w3-card-4  w3-circle" width="110px" height="100px" />
+					</div>
+					<div class="w3-col l9 m9 s12 ">
+						<span class="w3-tag w3-block w3-flat-midnight-blue w3-text-white w3-padding w3-card-4">{{testmonial.parent_name.name.first_name}} {{testmonial.parent_name.name.last_name}}</span>
+						<div class="w3">{{testmonial.message}}</div>
+					</div>
+					</div>
+					<div class="w3-left" style="cursor: pointer;" onclick="plusDivs(-1)">&#10094;</div>
+					<div class="w3-right" style="cursor: pointer;" onclick="plusDivs(1)">&#10095;</div>
+					
+				</div>
+			
+			{% endfor %}
+			
+		</div>
+		<div class='w3-col l5 m5 s12'>
+			{% for about in abouts %}
+			{% if about.testimonial_parent_image %}
+			<a href="{% url 'testmonial-create' %}">
+				<div style="background: url({{about.testimonial_parent_image.url}}) no-repeat 0px 0px; width:100%; height:365px;" class='w3-display-container '>
+					{% if user.is_authenticated %}
+					<button class='w3-right w3-xlarge w3-opacity-min w3-white w3-display-middle w3-card w3-hover-text-green w3-button w3-center'>
+						Give us your
+							<br>
+						 <span class="w3-card-4  w3-flat-midnight-blue w3-padding">FEEDBACK </span> 
+						 	<br>
+						here </button>
+					{% endif %}
+				</div>
+				</a>
+			{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+	</section>
+
+<script>
+	var myIndex = 0;
+	carousel();
+	
+	function carousel() {
+	  var i;
+	  var x = document.getElementsByClassName("mySlides");
+	  for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";  
+	  }
+	  myIndex++;
+	  if (myIndex > x.length) {myIndex = 1}    
+	  x[myIndex-1].style.display = "block";  
+	  setTimeout(carousel, 10000); // Change image every 2 seconds
+	}
+	</script>
+
+
+<script>
+	var slideIndex = 1;
+	showDivs(slideIndex);
+	
+	function plusDivs(n) {
+	  showDivs(slideIndex += n);
+	}
+	
+	function currentDiv(n) {
+	  showDivs(slideIndex = n);
+	}
+	
+	function showDivs(n) {
+	  var i;
+	  var x = document.getElementsByClassName("mySlides");
+	  var dots = document.getElementsByClassName("demo");
+	  if (n > x.length) {slideIndex = 1}
+	  if (n < 1) {slideIndex = x.length}
+	  for (i = 0; i < x.length; i++) {
+		x[i].style.display = "none";  
+	  }
+	  for (i = 0; i < dots.length; i++) {
+		dots[i].className = dots[i].className.replace(" w3-white", "");
+	  }
+	  x[slideIndex-1].style.display = "block";  
+	  dots[slideIndex-1].className += " w3-white";
+	}
+	</script>
+	

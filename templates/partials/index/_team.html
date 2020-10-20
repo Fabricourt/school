@@ -1,0 +1,43 @@
+{% load static %}
+<div class="team" id="team">
+    <!-- Right to left-->
+    <div class="col-md-5 team-left-wthree">
+    {% for about in abouts %}
+    <div class="w3layouts-heading">
+            <h3 class="w3-text-blue w3-padding-32">Our <span class="w3-text-black">Leadership</span></h3>
+    </div>
+        {{about.aboutourleaders|safe }}
+    {% endfor %}
+    </div>
+    <div class="col-md-7 team-rght-agileits">
+    {% for team in teams %}
+      <div class="col-sm-4 team-w3-agileits">
+        <!-- normal -->
+        <div class="ih-item circle effect3 bottom_to_top">
+            <div class="img"><img src="{{team.image.url}}" alt="img"></div>
+            <div class="info">
+                <h3>{{team.title}}</h3>        
+                <ul class="social-icons">
+                    {% if team.facebook %}
+                    <li><a href="{{team.facebook}}" class="fb"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                    {% if team.twitter %}
+                    <li><a href="{{team.twitter}}" class="twt"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                    {% if team.instagram %}
+                    <li><a href="{{team.instagram}}" class="ggl"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <!-- end normal -->
+         <h5>{{team.name}}</h5> 
+        <p>{{team.statement}}</p>
+      </div>
+      {% endfor %}
+
+      <div class="clearfix"> </div>
+    </div>
+    <div class="clearfix"> </div>
+    <!-- end Right to left-->
+    </div>

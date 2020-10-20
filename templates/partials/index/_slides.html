@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="slider w3layouts agileits">
+    <ul class="rslides  agileits" id="slider">
+        {% for slide in slides %}
+        <li>
+            <div class="slide-1" style="background: url({{slide.image.url}}) no-repeat 0px 0px;">
+                <div class="layer w3layouts agileits">
+                    <div class="logo-agileits">
+                        <a class="navbar-brand" href="{% url 'central' %}">Triza Academy</a>
+                    </div>
+                    <div class="banner-info-w3layouts">
+                        <h3>{{slide.title}}</h3>
+                        <p>{{slide.label}}</p>
+                        <div class="bnr-butn-w3ls">
+                            <h6><a href="#about" class="scroll"><i class="fa fa-angle-right" aria-hidden="true"></i>About Us</a></h6>
+                            <h6><a href="#contact" class="scroll"><i class="fa fa-angle-right" aria-hidden="true"></i>Contact Us</a></h6>
+                            {% if user.is_authenticated %}
+                            <h6><a href="{% url 'testmonial-create' %}" class="scroll"><i class="fa fa-angle-right" aria-hidden="true"></i>Give Us Your <span class="w3-blue w3-padding">FEEDBACK</span></a></h6>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>	
+        </li>
+        {% endfor %}
+    </ul>
+</div>

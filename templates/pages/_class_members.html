@@ -1,0 +1,225 @@
+
+<div onclick="myFunction('account_1')" class=" w3-block w3-margin-top w3-margin-bottom w3-padding-16 w3-border-brown w3-hover-white  w3-hover-shadow w3-hover-border-white w3-win8-taupe w3-border w3-left-align"> <span class="w3-tag  w3- w3-padding w3-block w3-brown"> Students</span></div>
+
+<div id="account_1" class="w3-container w3-win8-taupe  w3-hide">
+    <div class="">
+        <ol>
+            {% for customuser  in students8 %}
+                {% if user.is_student %}
+                    {% if user.is_grade8 %}
+                        {% if customuser.first_name %}
+                        <li class="w3-padding-16">
+                            {% if customuser.image %}
+                            <img src="{{customuser.image.url}}" alt="Image" class="w3-left w3-margin-right" style="height:50px; width:50px">
+                            {% endif %}
+                            <span class="w3-small ">
+                                    {{customuser.first_name}} 
+
+                                |
+                                {% if customuser.title %}
+                                    {{customuser.title}} 
+                                {% endif %}
+                                <br> 
+                                {% if customuser.phone %}
+                                    {{customuser.phone}} 
+                                {% endif %}
+                            </span>
+                        </li>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            <!--Grade 7-->
+            {% for customuser in students7 %}
+                {% if user.is_student %}
+                    {% if user.is_grade7 %}
+                        {% if customuser.first_name %}
+                        <li class="w3-padding-16">
+                            {% if customuser.image %}
+                            <img src="{{customuser.image.url}}" alt="Image" class="w3-left w3-margin-right" style="height:50px; width:50px">
+                            {% endif %}
+                            <span class="w3-small ">
+                                    {{customuser.first_name}} 
+
+                                    |
+
+                                {% if customuser.title %}
+                                    {{customuser.title}} 
+                                {% endif %}
+                                <br> 
+                                {% if customuser.phone %}
+                                    {{customuser.phone}} 
+                                {% endif %}
+                            </span>
+                        </li>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            <!-- grade 6-->
+            {% for customuser  in students6 %}
+                {% if user.is_student %}
+                    {% if user.is_grade6 %}
+                        {% if customuser.first_name %}
+                        <li class="w3-padding-16">
+                            {% if customuser.image %}
+                            <img src="{{customuser.image.url}}" alt="Image" class="w3-left w3-margin-right" style="height:50px; width:50px">
+                            {% endif %}
+                            <span class="w3-small ">
+                                    {{customuser.first_name}} 
+
+                                |
+                                {% if customuser.title %}
+                                    {{customuser.title}} 
+                                {% endif %}
+                                <br> 
+                                {% if customuser.phone %}
+                                    {{customuser.phone}} 
+                                {% endif %}
+                            </span>
+                        </li>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            <!--Grade 5-->
+            {% for customuser  in students5 %}
+                {% if user.is_student %}
+                    {% if user.is_grade5 %}
+                        {% if customuser.first_name %}
+                        <li class="w3-padding-16">
+                            {% if customuser.image %}
+                            <img src="{{customuser.image.url}}" alt="Image" class="w3-left w3-margin-right" style="height:50px; width:50px">
+                            {% endif %}
+                            <span class="w3-small ">
+                                    {{customuser.first_name}} 
+
+                                |
+                                {% if customuser.title %}
+                                    {{customuser.title}} 
+                                {% endif %}
+                                <br> 
+                                {% if customuser.phone %}
+                                    {{customuser.phone}} 
+                                {% endif %}
+                            </span>
+                        </li>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            <!--Grade 4-->
+            {% for customuser  in students4 %}
+                {% if user.is_student %}
+                    {% if user.is_grade4 %}
+                        {% if customuser.first_name %}
+                        <li class="w3-padding-16">
+                            {% if customuser.image %}
+                            <img src="{{customuser.image.url}}" alt="Image" class="w3-left w3-margin-right" style="height:50px; width:50px">
+                            {% endif %}
+                            <span class="w3-small ">
+                                    {{customuser.first_name}} 
+
+                                |
+                                {% if customuser.title %}
+                                    {{customuser.title}} 
+                                {% endif %}
+                                <br> 
+                                {% if customuser.phone %}
+                                    {{customuser.phone}} 
+                                {% endif %}
+                            </span>
+                        </li>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            <!-- grade 3-->
+            {% for customuser  in students3 %}
+                {% if user.is_student %}
+                    {% if user.is_grade3 %}
+                        {% if customuser.first_name %}
+                        <li class="w3-padding-16">
+                            {% if customuser.image %}
+                            <img src="{{customuser.image.url}}" alt="Image" class="w3-left w3-margin-right" style="height:50px; width:50px">
+                            {% endif %}
+                            <span class="w3-small ">
+                                    {{customuser.first_name}} 
+
+                                |
+                                {% if customuser.title %}
+                                    {{customuser.title}} 
+                                {% endif %}
+                                <br> 
+                                {% if customuser.phone %}
+                                    {{customuser.phone}} 
+                                {% endif %}
+                            </span>
+                        </li>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            <!--Grade 2-->
+            {% for customuser  in students2 %}
+                {% if user.is_student %}
+                    {% if user.is_grade2 %}
+                        {% if customuser.first_name %}
+                        <li class="w3-padding-16">
+                            {% if customuser.image %}
+                            <img src="{{customuser.image.url}}" alt="Image" class="w3-left w3-margin-right" style="height:50px; width:50px">
+                            {% endif %}
+                            <span class="w3-small ">
+                                    {{customuser.first_name}} 
+
+                                |
+                                {% if customuser.title %}
+                                    {{customuser.title}} 
+                                {% endif %}
+                                <br> 
+                                {% if customuser.phone %}
+                                    {{customuser.phone}} 
+                                {% endif %}
+                            </span>
+                        </li>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            <!--Grade 1-->
+            {% for customuser  in students1 %}
+                {% if user.is_student %}
+                    {% if user.is_grade2 %}
+                        {% if customuser.first_name %}
+                        <li class="w3-padding-16">
+                            {% if customuser.image %}
+                            <img src="{{customuser.image.url}}" alt="Image" class="w3-left w3-margin-right" style="height:50px; width:50px">
+                            {% endif %}
+                            <span class="w3-small ">
+                                    {{customuser.first_name}} 
+
+                                |
+                                {% if customuser.title %}
+                                    {{customuser.title}} 
+                                {% endif %}
+                                <br> 
+                                {% if customuser.phone %}
+                                    {{customuser.phone}} 
+                                {% endif %}
+                            </span>
+                        </li>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+    
+        </ol>
+    </div>
+</div>

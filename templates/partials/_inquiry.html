@@ -1,0 +1,44 @@
+{% load static %}
+
+   <!-- Inquiry Modal -->
+   <div class="modal fade" id="inquiryModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="inquiryModalLabel">Make An Inquiry</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'tcontact' %}" method="POST">
+            {% csrf_token %}
+            {% if user.is_authenticated %}
+              <input type="hidden" name="user_id" value="{{ user.id }}">
+            {% else %}
+              <input type="hidden" name="user_id" value="0">
+            {% endif %}
+            <input type="hidden" name="lesson_id" value="{{ lesson.id }}">
+
+            <input type="hidden" name="email" class="form-control" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
+            <input type="hidden" name="phone" class="form-control" {% if user.is_authenticated %} value="{{ user.phone }}" {% endif %} required>
+            <input type="hidden" name="name" class="form-control" {% if user.is_authenticated %} value="{{ user.first_name }} {{ user.last_name }}" {% endif %} required>
+
+            <div class="form-group">
+              <label for="name" class="col-form-label">Lesson:</label>
+              <input type="text" name="lesson" class="form-control"
+               {% if user.is_authenticated %} 
+               value="{{lesson}}" {% endif %} required>
+            </div>
+         
+            <div class="form-group">
+              <label for="message" class="col-form-label">Ask your question here:</label>
+              <textarea name="message" class="form-control"></textarea>
+            </div>
+            <hr>
+            <input type="submit" value="Send" class="btn btn-block btn-secondary">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

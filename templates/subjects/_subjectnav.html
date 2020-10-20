@@ -1,0 +1,98 @@
+{% load static %}
+
+    
+    <div class="w3-container  w3-border w3-margin-top" >
+        <header class="w3-card-4 w3-padding-16 w3-orange w3-margin-top w3-margin-bottom w3-text-white">  
+            <h3 class="w3-text-white ">
+                <i class="fa fa-star w3-padding fa-fw w3-margin-right w3-xlarge w3-text-white"></i>
+                Subject
+            </h3>
+        </header>
+      
+        <div>
+            <ol class="w3-orange w3-text-white">
+                {% if user.is_grade8 %}
+                    {% for subject in subjects %}
+                        {% if subject.is_grade8 %}
+                            {% include 'subjects/_subject.html' %}
+                        {% endif %}
+                    {% endfor %}      
+                {% endif %}   
+
+                <!--grade 7-->
+                {% if user.is_grade7 %}
+                    {% for subject in subjects %}
+                        {% if subject.is_grade7 %}
+                            {% include 'subjects/_subject.html' %}
+                        {% endif %}
+                    {% endfor %}      
+                {% endif %}
+
+                <!--grade 6-->
+                {% if user.is_grade6 %}
+                    {% for subject in subjects %}
+                        {% if subject.is_grade6 %}
+                            {% include 'subjects/_subject.html' %}
+                        {% endif %}
+                    {% endfor %}      
+                {% endif %}
+
+                <!--grade 5-->
+                {% if user.is_grade5 %}
+                    {% for subject in subjects %}
+                        {% if subject.is_grade5 %}
+                            {% include 'subjects/_subject.html' %}
+                        {% endif %}
+                    {% endfor %}      
+                {% endif %}               
+                
+                <!--grade 4-->
+                {% if user.is_grade4 %}
+                    {% for subject in subjects %}
+                        {% if subject.is_grade4 %}
+                            {% include 'subjects/_subject.html' %}
+                        {% endif %}
+                    {% endfor %}      
+                {% endif %}
+
+                <!--grade 3-->
+                {% if user.is_grade3 %}
+                    {% for subject in subjects %}
+                        {% if subject.is_grade3 %}
+                            {% include 'subjects/_subject.html' %}
+                        {% endif %}
+                    {% endfor %}      
+                {% endif %}
+
+                <!--grade 2-->
+                {% if user.is_grade2 %}
+                    {% for subject in subjects %}
+                        {% if subject.is_grade2 %}
+                            {% include 'subjects/_subject.html' %}
+                        {% endif %}
+                    {% endfor %}      
+                {% endif %}
+
+
+                <!--grade 1-->
+                {% if user.is_grade1 %}
+                    {% for subject in subjects %}
+                        {% if subject.is_grade1 %}
+                            {% include 'subjects/_subject.html' %}
+                        {% endif %}
+                    {% endfor %}      
+                {% endif %}
+            </ol>
+        </div>
+    </div>
+
+<script>
+    function myFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        } else { 
+        x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>

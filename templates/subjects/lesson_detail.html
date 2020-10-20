@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% block title %} | Lesson {% endblock %}
+{% block content %}
+
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center  w3-padding-32"> 
+<a href="{% url 'central' %}">
+    <span class="btn  w3-border-right w3-card-4 w3-center w3-circle  w3-hide-small w3-metro-magenta w3-left" style="width: 60px; height: 60px;">
+       <P></P> 
+       <span class="w3-metro-magenta  w3-padding">
+            Back to class
+       </span>
+       <p></p>
+    </span>
+</a>
+
+
+  <h3  ><b class=" w3-hide-small w3-border-left w3-wide w3-border-right w3-padding  w3-border-grey w3-white  w3-text-blue w3-padding  w3-round " >
+      
+    <span class="w3-text-black">{{lesson.subject}}</span>  
+    |
+    <span class="w3-text-blue">{{lesson}}</span>  
+     </b></h3>
+
+  <h4  ><b class="  w3-hide-large w3-hide-medium w3-border-left  w3-border-right  w3-border-grey w3-white  w3-text-blue w3-padding  w3-round " >
+    <span class="w3-text-black">{{lesson.subject}}</span>  
+    |
+    <span class="w3-text-blue">{{lesson}}</span> 
+    </b>
+</h3>
+
+</header>
+<a href="{% url 'central' %}">
+    <div class="w3-button w3-hover-green w3-block w3-margin-bottom w3-border-right  w3-hide-large w3-hide-medium w3-metro-magenta w3-left">
+        Back To Class
+        
+    </div>
+</a>
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- entries -->
+<div class="w3-col l8 s12">
+  <!-- Video entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-metro-darken w3-opacity-min">
+        <video controls width="100%" height="400px" poster="{{ lesson.lesson_pic1.url }}"> 
+         <source src="{{ lesson.videofile.url }}" style="height:400px; width:100%">
+           <source src="video.mp4#t=0.01" type="video/mp4" width="100%" height="400">     
+             <source src="video.ogg" type="video/ogg" width="100%" height="400">
+             <source src="video.webm" type="video/webm" width="100%" height="400">
+             <object data="video.mp4" width="100%" height="400">
+             <embed src="video.swf" width="100%" height="400">
+             </object>
+             Your browser does not support the video tag.
+         </video>
+     </div>
+    <div class="w3-container">
+      <h3><b>{{lesson|upper}}</b></h3>
+      <h5>Topic: {{lesson.topic|upper}} <span class="w3-opacity">{{lesson.date_posted|date:"D, d, M, Y,"}}</span></h5>
+    </div>
+
+    <div class="w3-container">
+      {{ lesson.content|safe }}
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border w3-hide"><b>READ MORE »</b></button></p>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p><span class="w3-padding-large w3-right w3-hide"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+ {% for exercise in lesson.exercise_set_all  %}
+ {% if exercise.is_grade8 %}
+ {% if exercise.subject.topic.lesson == exercise.subject.topic.lesson %}
+  <div id="{{exercise.title}}" class="w3-container w3-white ">
+    <h4>{{exercise|capfirst}}</h4>
+    <p>{{exercise.questions|safe}}.</p>
+      <div class="">
+        <a href="{{exercise.questions.url}}" target="_blank">
+          <div class="w3-round  w3-hover-green w3-blue w3-button w3-block w3-panel w3-large">
+              <span class="w3-large"> Download Exercise File {{exercise.title}}</span>
+          </div>
+        </a>
+      </div>
+  </div>
+  {% endif %}
+  {% endif %}
+  {% endfor %}
+
+
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Introduction menu -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card w3-margin w3-margin-top">
+  <img src="{{lesson.subject.teacher.image.url}}" style="width:100%; height:180px">
+    <div class="w3-container  w3-metro-darken w3-center">
+      <h4 class="w3-center  w3-border-bottom w3-border-blue"><b>Teacher  {{lesson.subject.teacher.first_name}}</b></h4>
+      
+        <span> 
+             {{lesson.teacher.name.phone}}
+        </span> 
+    </div>
+    </div>
+  
+  <!-- Posts -->
+  <h4 class="w3-margin-bottom w3-tag w3-metro-purple w3-block w3-card w3-padding ">Pick Your next lesson</h4>
+  <div class="w3-card">
+    {% include 'subjects/_subjectnav.html' %}
+  </div>
+  <hr> 
+ 
+  <!-- Labels / tags -->
+  <div class="w3-card w3-margin w3-hide">
+    <div class="w3-container w3-padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="w3-container w3-white">
+    <p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
+    </p>
+    </div>
+  </div>
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-aqua w3-padding-32 w3-margin-top">
+    <a href="{% url 'central' %}">
+        <div class="btn w3-hover-green w3-block  w3-border-right  w3-metro-darken w3-left">
+            Back To Class
+            
+        </div>
+    </a>
+</footer>
+
+{% endblock %}
+
+

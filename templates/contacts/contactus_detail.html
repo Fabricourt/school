@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Message {% endblock %}
+{% block content %}
+
+<style>
+.bgimg {
+    background-image: url('{% static "img/glass.jpg" %}');
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+  }
+  </style>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div class="w3-display-topleft w3-padding-large w3-xlarge">
+        <a href="{% url 'central' %}" class="btn w3-highway-orange">Go Back</a>
+    </div>
+    <div class="w3-display-middle w3-center w3-metro-darken w3-block w3-opacity-min">
+      <h1 class="w3-xxxlarge w3-animate-top">THANK YOU FOR YOUR MESSAGE</h1>
+      <hr class="w3-border-grey" style="margin:auto;width:40%">
+      <p class="w3-large w3-center">...............</p>
+    </div>
+    <div class="w3-display-bottomleft w3-padding-large">
+      Powered by <a href="" target="_blank">Mfalme Softwares</a>
+    </div>
+  </div>
+
+
+{% endblock %}

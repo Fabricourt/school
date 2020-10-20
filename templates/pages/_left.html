@@ -1,0 +1,316 @@
+<div class='w3-hide-large w3-hide-medium'>
+    {% include 'pages/_heading.html' %}
+  </div>
+
+{% if user.is_grade8 %}
+      {% if grade8 %}
+            {% for grade in grade8 %}
+            <div class="w3-white w3-text-grey w3-border {{grade.color.border_color }} w3-margin-bottom">
+                <div class="w3-display-container">
+                
+                {% if grade.classteacher.image %}
+                <img src="{{ grade.classteacher.image.url }}" style="width:100%; height: 200px;" alt="Avatar">
+                {% endif %}
+        
+                <div class="w3-display-bottomleft w3-orange w3-block w3-opacity w3-container ">
+                    <h4> {{grade.classteacher.first_name}} {{grade.classteacher.last_name}}</h4>
+                </div>
+                </div>
+                <div class="w3-container w3-border w3-padding ">
+                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-purple"></i>{{grade.classteacher.title}}</p>
+                <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-green"></i>{{grade.classteacher.home}}</p>
+                <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-blue"></i>{{grade.classteacher.email}}</p>
+                <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-red"></i>{{grade.classteacher.phone}}</p>
+               
+                </div>
+            </div>
+            {% endfor %}
+      {% endif %}
+{% endif %}
+
+{% if user.is_grade7 %}
+      {% if grade7 %}
+            {% for grade in grade7 %}
+            <div class="w3-white w3-text-grey w3-border {{grade.color.border_color }} w3-margin-bottom">
+                  <div class="w3-display-container">
+                  
+                  {% if grade.classteacher.image %}
+                  <img src="{{ grade.classteacher.image.url }}" style="width:100%; height: 300px;" alt="Avatar">
+                  {% endif %}
+          
+                  <div class="w3-display-bottomleft w3-2019-eden w3-block w3-opacity w3-container ">
+                      <h4> {{grade.classteacher.first_name}} {{grade.classteacher.last_name}}</h4>
+                  </div>
+                  </div>
+                  <div class="w3-container w3-border w3-padding ">
+                  <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-red"></i>{{grade.classteacher.title}}</p>
+                  <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-yellow"></i>{{grade.classteacher.home}}</p>
+                  <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-green"></i>{{grade.classteacher.email}}</p>
+                  <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-purple"></i>{{grade.classteacher.phone}}</p>
+                 
+                  </div>
+              </div>
+            {% endfor %}
+      {% endif %}
+{% endif %}
+
+{% if user.is_grade6 %}
+      {% if grade6 %}
+            {% for grade in grade6 %}
+            <div class="w3-white w3-text-grey w3-border {{grade.color.border_color }} w3-margin-bottom">
+                  <div class="w3-display-container">
+                  
+                  {% if grade.classteacher.image %}
+                  <img src="{{ grade.classteacher.image.url }}" style="width:100%; height: 300px;" alt="Avatar">
+                  {% endif %}
+          
+                  <div class="w3-display-bottomleft w3-yellow w3-block w3-opacity w3-container ">
+                      <h4> {{grade.classteacher.first_name}} {{grade.classteacher.last_name}}</h4>
+                  </div>
+                  </div>
+                  <div class="w3-container w3-border w3-padding ">
+                  <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-green"></i>{{grade.classteacher.title}}</p>
+                  <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>{{grade.classteacher.home}}</p>
+                  <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-red"></i>{{grade.classteacher.email}}</p>
+                  <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-brown"></i>{{grade.classteacher.phone}}</p>
+                 
+                  </div>
+            </div>
+            {% endfor %}
+      {% endif %}
+{% endif %}
+
+{% if user.is_grade5 %}
+      {% if grade5 %}
+            {% for grade in grade5 %}
+            <div class="w3-white w3-text-grey w3-border {{grade.color.border_color }} w3-margin-bottom">
+                  <div class="w3-display-container">
+                  
+                  {% if grade.classteacher.image %}
+                  <img src="{{ grade.classteacher.image.url }}" style="width:100%; height: 300px;" alt="Avatar">
+                  {% endif %}
+          
+                  <div class="w3-display-bottomleft w3-green w3-block w3-opacity w3-container ">
+                      <h4> {{grade.classteacher.first_name}} {{grade.classteacher.last_name}}</h4>
+                  </div>
+                  </div>
+                  <div class="w3-container w3-border w3-padding ">
+                  <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>{{grade.classteacher.title}}</p>
+                  <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-black"></i>{{grade.classteacher.home}}</p>
+                  <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-red"></i>{{grade.classteacher.email}}</p>
+                  <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-green"></i>{{grade.classteacher.phone}}</p>
+                 
+                  </div>
+            </div>
+            {% endfor %}
+      {% endif %}
+{% endif %}
+
+
+{% if user.is_grade4 %}
+      {% if grade4 %}
+            {% for grade in grade4 %}
+            <div class="w3-white w3-text-grey w3-border {{grade.color.border_color }} w3-margin-bottom">
+                  <div class="w3-display-container">
+                  
+                  {% if grade.classteacher.image %}
+                  <img src="{{ grade.classteacher.image.url }}" style="width:100%; height: 300px;" alt="Avatar">
+                  {% endif %}
+          
+                  <div class="w3-display-bottomleft w3-metro-magenta w3- w3-block w3-opacity w3-container ">
+                      <h4> {{grade.classteacher.first_name}} {{grade.classteacher.last_name}}</h4>
+                  </div>
+                  </div>
+                  <div class="w3-container w3-border w3-padding ">
+                  <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-pink"></i>{{grade.classteacher.title}}</p>
+                  <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-green"></i>{{grade.classteacher.home}}</p>
+                  <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-yellow"></i>{{grade.classteacher.email}}</p>
+                  <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-red"></i>{{grade.classteacher.phone}}</p>
+                 
+                  </div>
+            </div>
+            {% endfor %}
+      {% endif %}
+{% endif %}
+
+{% if user.is_grade3 %}
+      {% if grade3 %}
+            {% for grade in grade3 %}
+            <div class="w3-white w3-text-grey w3-border {{grade.color.border_color }} w3-margin-bottom">
+                  <div class="w3-display-container">
+                  
+                  {% if grade.classteacher.image %}
+                  <img src="{{ grade.classteacher.image.url }}" style="width:100%; height: 300px;" alt="Avatar">
+                  {% endif %}
+          
+                  <div class="w3-display-bottomleft w3-metro-purple w3-block w3-opacity w3-container ">
+                      <h4> {{grade.classteacher.first_name}} {{grade.classteacher.last_name}}</h4>
+                  </div>
+                  </div>
+                  <div class="w3-container w3-border w3-padding ">
+                  <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-purple"></i>{{grade.classteacher.title}}</p>
+                  <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-yellow"></i>{{grade.classteacher.home}}</p>
+                  <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-pink"></i>{{grade.classteacher.email}}</p>
+                  <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-brown"></i>{{grade.classteacher.phone}}</p>
+                 
+                  </div>
+            </div>
+            {% endfor %}
+      {% endif %}
+{% endif %}
+
+{% if user.is_grade2 %}
+      {% if grade2 %}
+            {% for grade in grade2 %}
+            <div class="w3-white w3-text-grey w3-border {{grade.color.border_color }} w3-margin-bottom">
+                  <div class="w3-display-container">
+                  
+                  {% if grade.classteacher.image %}
+                  <img src="{{ grade.classteacher.image.url }}" style="width:100%; height: 300px;" alt="Avatar">
+                  {% endif %}
+          
+                  <div class="w3-display-bottomleft w3-metro-teal w3-block w3-opacity w3-container ">
+                      <h4> {{grade.classteacher.first_name}} {{grade.classteacher.last_name}}</h4>
+                  </div>
+                  </div>
+                  <div class="w3-container w3-border w3-padding ">
+                  <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{grade.classteacher.title}}</p>
+                  <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-blue"></i>{{grade.classteacher.home}}</p>
+                  <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-green"></i>{{grade.classteacher.email}}</p>
+                  <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-orange"></i>{{grade.classteacher.phone}}</p>
+                 
+                  </div>
+            </div>
+            {% endfor %}
+      {% endif %}
+{% endif %}
+
+{% if user.is_grade1 %}
+      {% if grade1 %}
+            {% for grade in grade1 %}
+            <div class="w3-white w3-text-grey w3-border {{grade.color.border_color }} w3-margin-bottom">
+                  <div class="w3-display-container">
+                  
+                  {% if grade.classteacher.image %}
+                  <img src="{{ grade.classteacher.image.url }}" style="width:100%; height: 300px;" alt="Avatar">
+                  {% endif %}
+          
+                  <div class="w3-display-bottomleft w3-win8-crimson w3-block w3-opacity w3-container ">
+                      <h4> {{grade.classteacher.first_name}} {{grade.classteacher.last_name}}</h4>
+                  </div>
+                  </div>
+                  <div class="w3-container w3-border w3-padding ">
+                  <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-blue"></i>{{grade.classteacher.title}}</p>
+                  <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-green"></i>{{grade.classteacher.home}}</p>
+                  <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-red"></i>{{grade.classteacher.email}}</p>
+                  <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-yellow"></i>{{grade.classteacher.phone}}</p>
+                 
+                  </div>
+            </div>
+            {% endfor %}
+      {% endif %}
+{% endif %} 
+
+<div class="">
+      {% include 'pages/_class_members.html' %}
+</div>
+
+<!--Notice-->
+<div>
+       
+            <div class="w3-container w3-white w3-border w3-margin-bottom   ">
+                  <h2 class="w3-text-white w3-food-spearmint w3-block w3-padding ">
+                        <i class="fa fa-circle fa-fw w3-text-green w3-xxlarge"></i>
+                        Notice
+                  </h2>  
+                  {% if user.is_grade8 %}
+                        {% if noticeg8  %}     
+                              {% for notice in noticeg8 %}
+                                    {% include 'pages/_notice.html' %}
+                              {% endfor %}
+                        {% endif %}
+                  {% endif %}
+
+                  {% if user.is_grade7 %}
+                        {% if noticeg7  %}     
+                              {% for notice in noticeg7 %}
+                                    {% include 'pages/_notice.html' %}
+                              {% endfor %}
+                        {% endif %}
+                  {% endif %}
+                  {% if user.is_grade6 %}
+                        {% if noticeg6  %}     
+                              {% for notice in noticeg6 %}
+                                    {% include 'pages/_notice.html' %}
+                              {% endfor %}
+                        {% endif %}
+                  {% endif %}
+                  {% if user.is_grade5 %}
+                        {% if noticeg5  %}     
+                              {% for notice in noticeg5 %}
+                                    {% include 'pages/_notice.html' %}
+                              {% endfor %}
+                        {% endif %}
+                  {% endif %}
+                  {% if user.is_grade4 %}
+                        {% if noticeg4  %}     
+                              {% for notice in noticeg4 %}
+                                    {% include 'pages/_notice.html' %}
+                              {% endfor %}
+                        {% endif %}
+                  {% endif %}
+                  {% if user.is_grade2 %}
+                        {% if noticeg2  %}     
+                              {% for notice in noticeg2 %}
+                                    {% include 'pages/_notice.html' %}
+                              {% endfor %}
+                        {% endif %}
+                  {% endif %}
+                  {% if user.is_grade2 %}
+                        {% if noticeg2  %}     
+                              {% for notice in noticeg2 %}
+                                    {% include 'pages/_notice.html' %}
+                              {% endfor %}
+                        {% endif %}
+                  {% endif %}
+                  {% if user.is_grade1 %}
+                        {% if noticeg1  %}     
+                              {% for notice in noticeg1 %}
+                                    {% include 'pages/_notice.html' %}
+                              {% endfor %}
+                        {% endif %}
+                  {% endif %}
+            </div>
+            
+      
+</div>
+<!-- end Notice-->
+
+
+
+<!--Homework-->
+<div>
+      {% include 'pages/_homework.html' %}
+</div>
+
+<div class="w3-hide-small">
+      {% include 'pages/_answers.html' %}
+</div>
+
+<div class="w3-hide-small">
+      {% include 'pages/_rightanswer.html' %}
+</div>
+<!--end homework-->
+
+
+
+<!--archive-->
+<div>
+      {% include 'pages/_archive.html' %}
+</div>
+<!--end archive-->
+
+
+
+
+  <br>

@@ -1,0 +1,10 @@
+<h1>Exercises</h1>
+<ol>
+
+    {% for exercise in exercise_list %}
+    <a href="{% url 'exercise' exercise.slug %}">
+    <li class="w3-text-green">{{exercise.title}}</li>
+</a>
+    {% endfor %}
+
+</ol>

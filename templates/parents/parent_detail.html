@@ -1,0 +1,10 @@
+
+
+{% for student  in parent.student_set.all %}
+<div class='w3-quarter w3-padding'>
+    {% if student.student_name.image.url %}
+    <img src="{{student.student_name.image.url}}" alt="" class="w3-card-4 w3-border" style="width:100%; height: 210px; padding:7px 7px 7px;">
+    {% endif %}
+    {{ student}}         
+</div>
+{% endfor %}

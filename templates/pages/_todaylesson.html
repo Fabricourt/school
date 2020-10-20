@@ -1,0 +1,57 @@
+{% load static %}
+<div class="w3-container w3-padding-16 w3-border w3-margin-bottom w3-white">
+  <div >
+    <span class="w3-card w3-block w3-yellow" data-toggle="modal" data-target="#inquiryModal">
+      <span><img src="{{ today.lesson.topic.subject.teacher.image.url }}" alt=""  class="w3-card-4 w3-circle" style="width: 50px; height:55px;"></span>
+      
+       Teacher | {{today.teacher.name.first_name}} {{today.teacher.name.last_name}} {{today.teacher.name.phone}}
+      <button class="btn-primary w3-hide btn-s" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
+    </span>
+
+
+
+
+
+
+  </div>
+    <div class="w3-container  ">
+      <h3 class="w3-opacity w3-center"><b>{{today.lesson.subject}}</b></h3>
+      <h6 class="w3-text-brown"><i class="fa fa-calendar fa-fw w3-margin-right"></i>{{today.date_posted|date:"D, d, M, Y"}}</h6>
+      <div class="w3-metro-darken w3-opacity-min">
+        <video controls width="100%" height="400px" poster="{{ today.lesson.lesson_pic1.url }}"> 
+         <source src="{{today.lesson.videofile.url}}" style="height:400px; width:100%">
+           <source src="video.mp4#t=0.01" type="video/mp4" width="100%" height="400">     
+             <source src="video.ogg" type="video/ogg" width="100%" height="400">
+             <source src="video.webm" type="video/webm" width="100%" height="400">
+             <object data="video.mp4" width="100%" height="400">
+             <embed src="video.swf" width="100%" height="400">
+             </object>
+             Your browser does not support the video tag.
+         </video>
+     </div>
+
+      <button onclick="myFunction('{{today.lesson.lesson_title}}')" class="w3-btn w3-block w3-margin-top w3-border-black w3-border w3-left-align">{{today.lesson.lesson_title|capfirst}} <span class="w3-tag">Notes</span></button>
+      <div id="{{today.lesson.lesson_title}}" class="w3-container w3-white w3-hide">
+        <h4>{{today.lesson.lesson_title|capfirst}}</h4>
+        <p>{{today.lesson.content|safe}}</p>
+
+      </div>
+      {% if today.exercise.title %}
+      <button onclick="myFunction('{{today.exercise.title}}')" class="w3-btn w3-block w3-margin-top w3-border-blue w3-hover-green w3-hover-border-green w3-border w3-left-align">{{today.exercise.title|capfirst}} <span class="w3-tag w3-blue">Homework | Exercise</span></button>
+      {% endif %}
+      <div id="{{today.exercise.title}}" class="w3-container w3-white w3-hide">
+        <h4>{{today.exercise.title|capfirst}}</h4>
+        <p>{{today.exercise.questions|safe}}.</p>
+          <div class="">
+            <a href="{{today.exercise.questions.url}}" target="_blank">
+              <div class="w3-round  w3-hover-green w3-blue w3-button w3-block w3-panel w3-large">
+                  <span class="w3-large"> Download Exercise File {{today.exercise.title}}</span>
+
+              </div>
+            </a>
+          </div>
+      </div>
+      </div>
+    
+    
+  </div>

@@ -1,0 +1,55 @@
+{% load static %}
+<!-- Navbar -->
+<nav class="w3-flat-midnight-blue">
+<div class="w3-container">
+
+
+
+  <div class="w3-bar ">
+    <a class="w3-bar-item " href="{% url 'index' %}">
+      <img src="{% static 'img/logos.png' %}" class="logo w3-circle w3-card-4  "  alt="" width="60px" height="60px">
+      
+    </a>
+    {% if user.image %}
+    <a class="w3-bar-item " href="">
+      <img src="{{user.image.url}}" class="logo w3-circle w3-white w3-card-4  "  alt="" width="60px" height="60px">
+    </a>
+    {% endif %}
+
+    
+
+
+    {% if user.is_authenticated %}
+      <a href="javascript:{document.getElementById('logout').submit()}" class="w3-button w3-bar-item w3-margin-top w3-right">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+      <form action="{% url 'logout' %}" method="POST" id="logout">
+        {% csrf_token %}
+        <input type="hidden">
+      </form>
+    {% else %}
+      <a class="w3-bar-item w3-right w3-margin-top" href="{% url 'login' %}">
+        <i class="fas fa-sign-in-alt w3-hide"></i>
+      </a>
+    {% endif %}
+
+    
+
+    {% if user.is_authenticated %}
+      {% if user.is_student %}
+        <a class="w3-bar-item w3-right w3-margin-top w3-button" href="{% url 'contactus-create' %}">
+          <i class="fas fa-sign-in-alt w3-hide"></i>Contactus
+        </a>
+        <div class="w3-dropdown-hover w3-right">
+          <button class="w3-button  w3-margin-top  w3-right">View all lessons</button>
+          <div class="w3-dropdown-content w3-bar-block w3-card-4">
+              {% include 'subjects/_subjects.html' %}
+          </div>
+        </div>
+        <a href="{% url 'central' %}" class="w3-bar-item w3-right w3-margin-top   w3-button">Class</a>
+      {% endif %}
+    {% endif %}
+   
+  </div>
+</div>
+</nav>

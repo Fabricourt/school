@@ -1,0 +1,123 @@
+{% load static %}
+<div class="gallery" id="gallery">
+    <div class="container">
+        <div class="w3layouts-heading">
+            <h3 class="w3-text-blue w3-padding-64">Our <span class="w3-text-black">Gallery</span></h3>
+        </div>
+        <div class="w3ls_gallery_grids">
+            <div class="col-md-4 w3_agile_gallery_grid">
+                {% for photo in photos %}
+                <div class="agile_gallery_grid">
+                    <a title="{{photo.statement_1}}" href="{{photo.photo_1.url}}">
+                        <div class="agile_gallery_grid1">
+                            <img src="{{photo.photo_1.url}}" alt=" " class="img-responsive" />
+                            <div class="w3layouts_gallery_grid1_pos">
+                                <h3>{{photo.title_1}}</h3>
+                                <p>{{photo.statement_1}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="agile_gallery_grid">
+                    <a title="{{photo.statement_2}}" href="{{photo.photo_2.url}}">
+                        <div class="agile_gallery_grid1">
+                            <img src="{{photo.photo_2.url}}" alt=" " class="img-responsive" />
+                            <div class="w3layouts_gallery_grid1_pos">
+                                <h3>{{photo.title_2}}</h3>
+                                <p>{{photo.statement_2}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="agile_gallery_grid">
+                    <a title="{{photo.statement_3}}" href="{{photo.photo_3.url}}">
+                        <div class="agile_gallery_grid1">
+                            <img src="{{photo.photo_3.url}}" alt=" " class="img-responsive" />
+                            <div class="w3layouts_gallery_grid1_pos">
+                                <h3>{{photo.title_3}}</h3>
+                                <p>{{photo.statement_3}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4 w3_agile_gallery_grid">
+                {% for photo in photos %}
+                <div class="agile_gallery_grid">
+                    <a title="{{photo.statement_4}}" href="{{photo.photo_4.url}}">
+                        <div class="agile_gallery_grid1">
+                            <img src="{{photo.photo_4.url}}" alt=" " class="img-responsive" />
+                            <div class="w3layouts_gallery_grid1_pos">
+                                <h3>{{photo.title_4}}/h3>
+                                <p>{{photo.statement_4}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="agile_gallery_grid">
+                    <a title="{{photo.statement_5}}" href="{{photo.photo_5.url}}">
+                        <div class="agile_gallery_grid1">
+                            <img src="{{photo.photo_5.url}}" alt=" " class="img-responsive" />
+                            <div class="w3layouts_gallery_grid1_pos">
+                                <h3>{{photo.title_5}}</h3>
+                                <p>{{photo.statement_5}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="agile_gallery_grid">
+                    <a title="{{photo.statement_6}}" href="{{photo.photo_6.url}}">
+                        <div class="agile_gallery_grid1">
+                            <img src="{{photo.photo_6.url}}" alt=" " class="img-responsive" />
+                            <div class="w3layouts_gallery_grid1_pos">
+                                <h3>{{photo.title_6}}</h3>
+                                <p>{{photo.statement_6}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4 w3_agile_gallery_grid">
+                {% for photo in photos %}
+                <div class="agile_gallery_grid">
+                    <a title="{{photo.statement_7}}" href="{{photo.photo_7.url}}">
+                        <div class="agile_gallery_grid1">
+                            <img src="{{photo.photo_7.url}}" alt=" " class="img-responsive" />
+                            <div class="w3layouts_gallery_grid1_pos">
+                                <h3>{{photo.title_7}}</h3>
+                                <p>{{photo.statement_7}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="agile_gallery_grid">
+                    <a title="{{photo.statement_8}}" href="{{photo.photo_8.url}}">
+                        <div class="agile_gallery_grid1">
+                            <img src="{{photo.photo_8.url}}" alt=" " class="img-responsive" />
+                            <div class="w3layouts_gallery_grid1_pos">
+                                <h3>{{photo.title_8}}</h3>
+                                <p>{{photo.statement_8}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="agile_gallery_grid">
+                    <a title="{{photo.statement_9}}" href="{{photo.photo_9.url}}">
+                        <div class="agile_gallery_grid1">
+                            <img src="{{photo.photo_9.url}}" alt=" " class="img-responsive" />
+                            <div class="w3layouts_gallery_grid1_pos">
+                                <h3>{{photo.title_9}}</h3>
+                                <p>{{photo.statement_9}}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

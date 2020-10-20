@@ -1,0 +1,81 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} | {{service}} {% endblock %}
+
+{% block content %}
+
+<!-- Header -->  
+<div class="w3-padding-64">
+
+  <!-- Image header -->
+  <div class="w3-display-container w3-wide " id="home">
+
+        {% if page.thumbnail %}
+        <img class="w3-image  " src="{{page.thumbnail.url}}" alt="Fashion Blog" width="50vh" height="1060">
+        {% endif %}
+ 
+    <div class="w3-display-middle w3-padding-large">
+
+      <h5 class="w3-xxxlarge w3-text-white w3-center w3-blue w3-opacity-min"><b>{{page}}</b></h5>
+      <h6 class="w3-black w3-center">{{page.statement}}</h6>
+    </div>
+</div>
+
+
+  <div class="w3-row w3-padding w3-border">
+
+    <!-- Blog entries -->
+    <div class="w3-col l8 s12">
+    
+      <!-- Blog entry -->
+      <div class="w3-container w3-white w3-margin w3-padding-large">
+        <div class="w3-justify">
+            {{page.description|safe}}
+        </div>
+      </div>
+      
+
+    
+    </div>
+
+    <div class="w3-col l4">
+      <!-- About Card -->
+      <div class="w3-2017-marina w3-card-4 w3-padding w3-margin">
+        <div class="row ">
+           
+            <div class="w3-container col-sm-12">
+                
+                <h4 class="w3-padding">{{page}}</h4>
+                
+                </div>
+        </div>
+      </div>
+      <hr>
+
+      
+      <div class="w3-white w3-margin">
+        <div class="w3-container w3-padding w3-food-kiwi">
+          <h4>Other Pages</h4>
+        </div>
+        <ul class="w3-ul w3-hoverable w3-white">
+        {% for page in pages %}
+        
+        <a href="{% url 'page-detail' page.slug %}">
+          <li class="w3-padding-16">
+            {% if page.thumbnail %}
+            <img src="{{page.thumbnail.url}}" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+            {% endif %}
+            <span class="w3-large">{{page}}</span>
+          </li>
+        </a>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+    </div>
+</div>
+      <hr>
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% load static %} 
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- Favicon -->
+<link href="{% static 'img/logos.png'  %}" class="w3-circle"  styel="width:50px; height:50px;" rel="shortcut icon"/>
+  
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+<!-- CSS -->
+{% include 'base/css.html' %}
+<style>
+  .logo {
+  width: 40px; 
+  height: 40px; }
+  a:link {
+    text-decoration-line: none ;
+  }
+  
+</style>
+
+<title>Triza Academy {% block title %} {% endblock %}</title>
+
+</head>
+
+<body class="w3-signal-white">
+  <!-- Pre-loader -->
+  {% include 'partials/_preloader.html' %}
+
+  <!-- Top Bar -->
+  
+  <!--Nav Bar-->
+  {% include 'partials/_navbar.html' %}
+
+
+  <!-- Main Content -->
+  {% block content %} 
+
+  {% endblock %}
+
+  <!-- Footer -->
+  
+  
+  
+
+  <!-- Javascript -->
+  {% include 'base/js.html' %}
+  {% block javascript %}
+
+  {% endblock %}
+
+  <!-- JS, Popper.js, and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+{% load static %}
+<div class="footer w3layouts ">
+    <div class="container">
+        <div class="footer-row w3layouts-agile">
+            <div class="col-md-4 footer-grids w3l-agileits">
+                <div class="row">
+                {% for address in addresss %}
+                    <div class="col-md-12 ">
+                        <div class="">
+                            <a class="navbar-brand" href="{% url 'index' %}">
+                            <img src="{{ address.logo.url }}" alt="logo" class="w3-circle  w3-margin-left w3-margin-right" style="width:50px; height:50px;">
+                            </a>
+                        </div>
+                    
+                    </div>
+            <br><br>
+            <div class="w3-margin-top w3-padding">
+                <h5 class="w3-border-blue w3-text-blue w3-border-bottom">{{address.statement}}</h5>
+                <p class="w3-text-green">{{address}}</p>
+            </div>
+            
+            <ul class="social-icons">
+                {% if address.facebook %}
+                <li><a rel="nofollow" href="{{address.facebook}}" target="_blank"><i class="fa fa-facebook w3-text-light-blue"></i></a></li>
+                {% endif %}
+
+                {% if address.twitter %}
+                <li><a rel="nofollow" href="{{address.twitter}}"><i class="fa fa-twitter w3-text-blue"></i></a></li>
+                {% endif %}
+                
+                {% if address.instagram %}
+                <li><a  rel="nofollow" href="{{address.instagram}}"><i class="fa fa-instagram w3-pink"></i></a></li>
+                {% endif %}
+                
+                {% if address.youtube %}
+                <li><a rel="nofollow" href="{{address.youtube}}"><i class="fa fa-youtube w3-text-red"></i></a></li>
+                {% endif %}
+            </ul>
+      {% endfor %}
+    </div>
+    <div class="col-md-3 footer-item ">
+      <h4 class="w3-border-bottom w3-border-greenmint "></h4>
+      <ul class="menu-list">
+        <br>
+        
+            
+                </div>
+            </div>
+
+            <div class="col-md-4 footer-grids w3l-agileits">
+                <h5>Updates</h5>					
+                <ul class="w3-ul">
+                    {% for page in f2_pages %}
+                    <li onclick="document.getElementById('{{page.title}}').style.display='block'"><a  href="#" class="find-about w3-small" >
+                        {{page.title}}
+                    </a>
+                    <br>
+                    <span class="find-about w3-small">{{page.date_posted}}</span></li>
+                    <div id="{{page.title}}" class="w3-modal" onclick="document.getElementById('{{page.title}}').style.display='none'" width="100%">
+                        <div class="w3-modal-content ">
+                          <div class="w3-container">
+                            <span onclick="document.getElementById('{{page.title}}').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                            
+                                        
+                                        <div class="w3-display-conntainer">
+                                        <img src="{{page.thumbnail.url}}" alt=" " class="img-responsive" width="100%" height="40vh">
+                                        <h4 class="w3-margin w3-padding w3-container w3-xxlarge w3-display-middle  w3-text-white w3-center w3-content w3-black w3-opacity" >{{page.title}}</h4>
+                                        </div>
+                                        <div class="w3-container w3-padding">
+                                            {{page.description|safe}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                    {% endfor %}
+                
+        
+                </ul>
+            </div>
+            <div class="col-md-4 footer-grids w3l-agileits">
+                <h5>More..</h5>					
+                <ul class="w3-ul">
+                    {% for page in f3_pages %}
+                    <li onclick="document.getElementById('{{page.title}}').style.display='block'"><a  href="#" class="find-about w3-small">
+                        {{page.title}}
+                    </a>
+                    <br>
+                    <span class="find-about w3-small">{{page.date_posted}}</span></li>
+                    <div id="{{page.title}}" class="w3-modal" onclick="document.getElementById('{{page.title}}').style.display='none'" width="100%">
+                        <div class="w3-modal-content ">
+                          <div class="w3-container">
+                            <span onclick="document.getElementById('{{page.title}}').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                            
+                                        
+                                        <div class="w3-display-conntainer">
+                                        <img src="{{page.thumbnail.url}}" alt=" " class="img-responsive" width="100%" height="40vh">
+                                        <h4 class="w3-margin w3-padding w3-container w3-xxlarge w3-display-middle  w3-text-white w3-center w3-content w3-black w3-opacity" >{{page.title}}</h4>
+                                        </div>
+                                        <div class="w3-container w3-padding">
+                                            {{page.description|safe}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                    {% endfor %}
+                
+        
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+<div class="footer-bottom wtrhee-agileinfo w3-flat-midnight-blue">
+    <div class="container">	
+        <p class="copy">Copyright 2020 | Mfalme Softwares 
+</div>

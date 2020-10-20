@@ -1,0 +1,64 @@
+{% load static %}
+<style>
+        body,h1,h2,h3,h4,h5,h6,p {font-family: "Lato", sans-serif;}
+        body, html {
+          
+          color: #777;
+          line-height: 1.8;
+        }
+        
+        /* Create a Parallax Effect */
+        .bgimg_5, .bgimg_1, .bgimg_2, .bgimg_3, .bgimg_4 {
+          background-attachment: fixed;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        
+        /* First image (Logo. Full height) */
+        .bgimg_1 {
+       
+          background-image: url('{% static 'img/slide_05.jpg' %}');
+          
+        
+        }
+        
+        /* Second image (Portfolio) */
+        .bgimg_2 {
+      
+          background-image: url('{% static 'img/slide_02.jpg' %}');
+       
+    
+        }
+        
+        /* Third image (Contact) */
+        .bgimg_3 {
+     
+            background-image: url('{% static 'img/slide_03.jpg' %}');
+        }
+
+        /* Four image (Contact) */
+        .bgimg_4 {
+            
+            background-image: url('{% static 'img/slide_04.jpg' %}');
+        }
+
+     
+        /* Five image (Contact) */
+        .bgimg_5 {
+            
+            background-image: url('{% static 'img/slide_06.jpg' %}');
+        }
+
+        
+        .w3-wide {letter-spacing: 10px;}
+        .w3-hover-opacity {cursor: pointer;}
+        
+        /* Turn off parallax scrolling for tablets and phones */
+        @media only screen and (max-device-width: 1600px) {
+          .bgimg_1, .bgimg_2, .bgimg_3, .bgimg_4, .bgimg_5 {
+            background-attachment: scroll;
+        
+          }
+        }
+        </style>

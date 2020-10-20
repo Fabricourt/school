@@ -1,0 +1,61 @@
+
+<div class="sevices-w3layouts" id="services">
+	<div class="container">
+	<div class="w3layouts-heading w3-padding-64">
+				<h3 class='w3-text-blue'>Our <span class="w3-text-black">Services</span></h3>
+            </div>
+			{% for service in services %}
+			<div class="w3-row-padding w3-margin-bottom">
+				<div class="w3-quarter w3-xxlarge">
+				  <div class="w3-container w3-red w3-padding-16">
+					<div class="w3-left"><i class="{{service.icon1 }}  w3-jumbo"></i></div>
+					<br>
+					<div class="w3-right">
+					  <h3 class="w3-xxlarge">{{service.title1}}</h3>
+					</div>
+					<br>
+					<div class="w3-clear"></div>
+					<h6 class="w3-small">{{service.statement1}}</h6>
+				  </div>
+				</div>
+				<div class="w3-quarter w3-xxlarge">
+				  <div class="w3-container w3-blue w3-padding-16">
+					<div class="w3-left"><i class="{{service.icon2 }}  w3-jumbo"></i></div>
+					<br>
+					<div class="w3-right">
+					  <h3 class=" w3-xxlarge">{{service.title2}}</h3>
+					</div>
+					<br>
+					<div class="w3-clear"></div>
+					<h6 class="w3-small">{{service.statement2}}</h6>
+				  </div>
+				</div>
+				<div class="w3-quarter w3-xxlarge">
+				  <div class="w3-container w3-teal w3-padding-16">
+					<div class="w3-left"><i class="{{service.icon3 }}  w3-jumbo"></i></div>
+					<br>
+					<div class="w3-right">
+					  <h3 class=" w3-xxlarge">{{service.title3}}</h3>
+					</div>
+					<br>
+					<div class="w3-clear"></div>
+					<h6 class="w3-small">{{service.statement3}}</h6>
+				  </div>
+				</div>
+				<div class="w3-quarter w3-xxlarge">
+				  <div class="w3-container w3-orange w3-text-white w3-padding-16">
+					<div class="w3-left"><i class="{{service.icon4 }} w3-jumbo"></i></div>
+					<br>
+					<div class="w3-right">
+					  <h3 class="w3-xxlarge">{{service.title4}}</h3>
+					</div>
+					<br>
+					<div class="w3-clear"></div>
+					<h6 class="w3-small">{{service.statement4}}</h6>
+				  </div>
+				</div>
+			  </div>
+		{% endfor %}		
+		<div class="clearfix"> </div>	
+	</div>
+</div>

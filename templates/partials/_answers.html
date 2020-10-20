@@ -1,0 +1,16 @@
+<a href="{{answer.get_absolute_url}}" target="_blank " >
+    <li class="w3-padding-16">
+        
+        {% if answer.unmarked %}
+            <span class="w3-red w3-right w3-small  ">-Unmarked-</span>
+        {% else %}
+            <span class="w3-green w3-right w3-small  ">-Marked----</span>
+        {% endif %}
+        <img src="{{answer.name.image.url}}" alt="Image" class="w3-left w3-margin-right" style="height:50px; width:50px">
+        
+        <span class="w3-small ">{{answer.name.first_name}} {{answer.name.last_name}} <br> {{answer.exercise.title}} 
+        </span>
+
+    
+    </li>
+</a>

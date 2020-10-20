@@ -1,0 +1,116 @@
+{% load static %}
+
+{% for about in abouts %}
+
+<div class="about" id="about">
+    <div class="banner_bottom_agile_grids">
+        <div class="container">
+        <div class="w3layouts-heading">
+                    <h3 class="w3-text-blue w3-padding-32">About <span class="w3-text-black">us</span></h3>
+                </div>
+                    <div class="wthree_banner_bottom_right_grids">
+                        <div class="col-md-4 banner_bottom_right_grid">
+                            <div class="view view-tenth">
+                                <div class="agile_text_box">
+                                    <i class="{{about.icon1}}" aria-hidden="true"></i>
+                                    <h3>{{about.title1}}</h3>
+                                    <p>{{about.about_us_1}}</p>
+                                </div>
+                                <div class="mask">
+                                    <img src="{{about.aboutusimage1.url}}" class="img-responsive" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 banner_bottom_right_grid">
+                            <div class="view view-tenth">
+                                <div class="agile_text_box">
+                                    <i class="{{about.icon2}}" aria-hidden="true"></i>
+                                    <h3>{{about.title2}}</h3>
+                                    <p>{{about.about_us_2}}</p>
+                                </div>
+                                <div class="mask">
+                                    <img src="{{about.aboutusimage2.url}}" class="img-responsive" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="col-md-4 banner_bottom_right_grid">
+                            <div class="view view-tenth">
+                                <div class="agile_text_box">
+                                    <i class="{{about.icon3}}" aria-hidden="true"></i>
+                                    <h3>{{about.title3}}</h3>
+                                    <p>{{about.about_us_3}}</p>
+                                </div>
+                                <div class="mask">
+                                    <img src="{{about.aboutusimage3.url}}" class="img-responsive" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"> </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+    </div>
+    <!-- about-bottom-->
+    <div class="services-inner-agileits">
+        <div class="container">
+      <div class="col-md-8">
+           <ul id="flexiselDemo1">			
+                    <li>
+                        <div class="laptop">
+                                <div class="img-box"><img class="img-responsive zoom-img" src="{{about.aboutusimage4.url}}" alt=" " /></div>
+                                <div class="flex-info ">
+                                        <h4>{{about.number4}}<span>{{about.title4}}</span></h4>
+                                        <p>{{about.about_us_4}}</p>
+                                </div>
+                                 
+                            </div>
+                        
+                    </li>
+                    <li>
+                        <div class="laptop">
+                            <div class="img-box"><img class="img-responsive zoom-img" src="{{about.aboutusimage5.url}}" alt=" " /></div>
+                            <div class="flex-info ">
+                                    <h4>{{about.number5}}<span>{{about.title3}}</span></h4>
+                                    <p>{{about.about_us_5}}</p>
+                            </div>
+                        </div>
+                        
+                    </li>
+                    <li>
+                        <div class="laptop">
+                            <div class="img-box"><img class="img-responsive zoom-img" src="{{about.aboutusimage6.url}}" alt=" " /></div>
+                            <div class="flex-info ">
+                                    <h4>{{about.number6}}<span>{{about.title6}}</span></h4>
+                                    <p>{{about.about_us_6}}</p>
+                            </div>
+                        </div>
+                            
+                    </li>
+                    <li>
+                        <div class="laptop">
+                            <div class="img-box"><img class="img-responsive zoom-img" src="{{about.aboutusimage7.url}}" alt=" " /></div>
+                            <div class="flex-info ">
+                                    <h4>{{about.number7}}<span>{{about.title7}}</span></h4>
+                                    <p>{{about.about_us_7}}</p>
+                            </div>
+                        </div>
+                            
+                    </li>
+                </ul>
+            
+      </div>
+      <div class="col-md-4 content-pro-head">
+            <div>
+                {{about.welcome_message|safe}}
+            </div>
+          <div class="button-w3ls w3-hide">
+                    <a href="#" class="know-more " data-toggle="modal" data-target="#myModal1">Know More</a>
+                </div>
+        </div>
+        <div class="clearfix"> </div>
+        </div>
+    </div>
+    </div>
+
+{% endfor %}
