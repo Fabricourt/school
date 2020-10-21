@@ -1,0 +1,66 @@
+<h5 class="w3-opacity"><b>Class Teacher</b></h5>
+<h6 class="w3-text-teal"><i class="fa fa-circle-o-notch w3-margin-right"></i> <span class="w3-tag w3-teal w3-round">Current</span></h6>
+{% if student.student_name.is_grade8 %}
+    {% if grade8 %}
+        {% for grade in grade8 %}
+                    {% include 'parents/_classteacherx.html' %}
+                {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% if student.student_name.is_grade7 %}
+    {% if grade7 %}
+            {% for grade in grade7 %}
+                {% include 'parents/_classteacherx.html' %}
+            {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% if student.student_name.is_grade6 %}
+    {% if grade6 %}
+            {% for grade in grade6 %}
+                {% include 'parents/_classteacherx.html' %}
+            {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% if student.student_name.is_grade5 %}
+    {% if grade5 %}
+            {% for grade in grade5 %}
+                {% include 'parents/_classteacherx.html' %}
+            {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% if student.student_name.is_grade4 %}
+    {% if grade4 %}
+            {% for grade in grade4 %}
+                {% include 'parents/_classteacherx.html' %}
+            {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% if student.student_name.is_grade3 %}
+    {% if grade3 %}
+            {% for grade in grade3 %}
+                {% include 'parents/_classteacherx.html' %}
+            {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% if student.student_name.is_grade2 %}
+    {% if grade2 %}
+            {% for grade in grade2 %}
+                {% include 'parents/_classteacherx.html' %}
+            {% endfor %}
+    {% endif %}
+{% endif %}
+
+{% if student.student_name.is_grade1 %}
+    {% if grade1 %}
+            {% for grade in grade1 %}
+                {% include 'parents/_classteacherx.html' %}
+            {% endfor %}
+    {% endif %}
+{% endif %}
+<hr>

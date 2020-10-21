@@ -1,54 +1,134 @@
+{% load static %}
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+</style>
 
 
-<section>
-    <div class="w3-row-padding">
-        
-        {% for parent in parents %}
-            {% if parent.name.first_name == user.first_name %}
-                <div class='w3-quarter w3-padding'>
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+  
+{% for parent in parents %}    
+  {% if parent.name.first_name == user.first_name %}
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-third">
+      <header class="w3-card-4 w3-white"><span class="w3-text-white">.</span></header>
+      <div class="w3-white w3-text-grey ">
+        <div class="w3-row w3-white">
+                <div class='w3-col l6 m6 s6'>
                     {% if parent.name.image.url %}
-                    <img src="{{parent.name.image.url}}" alt="" class="w3-card-4 w3-border" style="width:100%; height: 210px; padding:7px 7px 7px;">
+                    <div class="w3-display-container">
+                    <img src="{{parent.name.image.url}}" alt="" class="w3-hover-opacity"  style="width:100%; height: 125px; padding:7px 7px 7px;">
+                    <div class="w3-display-topleft w3-teal w3-border w3-container w3-card-4 ">
+                        {{parent.name.first_name}}
+                    </div>
+                    </div>
                     {% endif %}
-                    {{parent.name.first_name}} {{parent.name.last_name}}
+
                 </div>
              
-            {% endif %}
+            
             {% for student  in parent.student_set.all %}
-                <div class='w3-quarter w3-padding'>
+                <div class='w3-col l6 m6 s6'>
                     {% if student.student_name.image.url %}
-                    <img src="{{student.student_name.image.url}}" alt="" class="w3-card-4 w3-border" style="width:100%; height: 210px; padding:7px 7px 7px;">
+                    <div class="w3-display-container">
+                      <a href="#{{student.student_name.first_name}}">
+                        <img src="{{student.student_name.image.url}}" alt="" class="w3-hover-opacity"  style="width:100%; height: 125px; padding:7px 7px 7px;">
+                      </a>
+                        <div class="w3-display-topleft w3-border w3-container w3-teal w3-card-4 ">
+                            {{student.student_name.first_name}}
+                        </div>
+                    </div>
                     {% endif %}
-                    {{ student}}         
-                </div>
+                </div>     
             {% endfor %}
-        {% endfor %}
+
     </div>
-</section>
+        <div class="w3-container w3-margin-top w3-white">
+          <p class="w3-border-bottom"><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>{{parent.name.address}}</p>
+          <p class="w3-border-bottom"><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>{{parent.name.home}}</p>
+          <p class="w3-border-bottom"><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>{{parent.name.email}}</p>
+          <p class="w3-border-bottom"><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>{{parent.name.phone}}</p>
+        
+        </div>
+        <div class=" w3-margin-top w3-white">
+          {% include 'parents/_notice.html' %}
+          
+          {% include 'parents/_homework.html' %}
+        </div>
 
+        <div class="w3-border w3-margin-top w3-margin-bottom ">
+          <p class="w3-container w3-small">
+            <span class="w3-text-green w3-border-green w3-border-bottom ">
+              Answers to done exercises are here 
+            </span>
+            <br>if no exercises are here, consider following up on todays lessons and exercises to confirm and help us all todays exercises are completed.
+          </p>
+          {% include 'parents/_answers.html' %}
+          <br>
+        </div>
 
+        <div class=" w3-margin-top w3-margin-bottom ">
+        {% include 'parents/_correctanswer.html' %}
+        </div>
 
+        <div class=" w3-margin-top w3-white">
+          {% include 'parents/_archive.html' %}
 
+        </div>
+      
+      </div><br>
 
+    <!-- End Left Column -->
+    </div>
 
+    <!-- Right Column -->
+      <div class="w3-twothird ">
+        {% for student  in parent.student_set.all %}
+          <header class="w3-card-4 w3-white" id="{{student.student_name.first_name}}"><span class="w3-text-white">.</span></header>
+          <div class="w3-border-bottom w3-border-orange w3-container w3-white w3-margin-bottom">
+            <h4 class="w3-text-grey w3-padding-16 w3-border-bottom w3-border-teal"><i class="fa fa-star w3-card-4 fa-fw w3-border w3-circle w3-margin-right w3-xlarge w3-teal"></i>
+              {{student.student_name.first_name}} {{student.student_name.last_name}} Classroom Activity Account
+            <span class="w3-right">
+              <img src="{{student.student_name.image.url}}" alt="" class="w3-hover-opacity"  style="width:45px; height: 45px; ">
+            </span>
+            </h4>
+            <div class="">
+              {% include 'parents/_classteacher.html' %}
+            </div>
+            <div class="">
+              <h5 class="w3-opacity"><b>Today Lessons &  Exercises </b></h5>
+              {% include 'parents/_gradetodaylesson.html' %}
+              <hr>
+            </div>
+            <header class="w3-hover-orange w3-padding w3-right w3-margin-bottom w3-button w3-border-orange w3-hover-border-orange w3-dark-gray w3-border w3-hover-text-orange ">
+              <a href="#lessons" class="w3-padding w3-hover-text-white  w3-text-orange"> Find All Other Lessons Here</a>
+          </header>
+          </div>
 
+      {% endfor %}
 
+      <div id="lessons" onclick="myFunction('subjects')" class="w3-orange w3-button w3-hover-border-orange w3-hover-dark-gray w3-border w3-hover-text-orange w3-block">
+        <h4 class="w3-padding w3-hover-text-orange  w3-text-white">Revision Point</h4>
+      </div>
+      <div class="w3-hide" id="subjects">
+        {% include 'subjects/_subjectnav.html' %}
+      </div>
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  {% endif %}
+{% endfor %}
+  <!-- End Page Container -->
+</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<footer class="w3-container w3-flat-midnight-blue w3-padding-32 w3-center w3-margin-top">
+  <a href="" class="w3-hover-text-amber"><i class="fa fa-twitter w3-text-aqua "></i>Twitter</a>|
+  <a href="" class="w3-hover-text-amber"><i class="fa fa-facebook w3-text-aqua "></i>Facebook</a>
+  <a href="" class="w3-hover-text-amber"><i class="fa fa-instagram w3-text-aqua "></i>|Instagram</a>
+</footer>
 

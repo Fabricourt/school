@@ -16,6 +16,9 @@
     </a>
     {% endif %}
 
+    {% if user.is_parent %}
+    <a class="w3-bar-item w3-margin-top w3-hover-text-orange" href="{% url 'central' %}">Parents Account </a>
+    {% endif %}
     
 
 

@@ -1,0 +1,124 @@
+{% load static %}
+
+ <div class="card  w3-vivid-purple w3-margin-top">
+     <h3 class="w3-center">Teachers Answers</h3>
+     <p class="w3-small w3-text-white w3-padding">Here you can find the teachers answers to exercises given. You can compare to have a better understanding of how well your child is perfoming</p>
+ </div>
+ {% for student  in parent.student_set.all %}
+ <!--grade 8-->
+{% if student.student_name.is_grade8 %}
+    <div class="w3-margin-top">
+
+    <ol class="w3-ul">
+        {% for today in todays %}
+            {% if today.is_grade8 %}
+                {% if today.exercise.title %}
+                    {% include 'parents/_correctanswerx.html' %}
+                {% endif %} 
+            {% endif %}
+        {% endfor %}
+        </ol>
+    </div>
+{% endif %}
+
+<!--grade 7-->
+ {% if student.student_name.is_grade7 %}
+    <div class=" w3-hover-white  w3-margin-top">
+        <ol class="w3-ul">
+            {% for today in todays %}
+                {% if today.is_grade7 %}
+                    {% if today.exercise.title %}
+                        {% include 'parents/_correctanswerx.html' %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </div>
+ {% endif %}
+
+ <!--grade 6-->
+   {% if student.student_name.is_grade6 %}
+   <div class=" w3-hover-white  w3-margin-top">
+    <ol class="w3-ul">
+        {% for today in todays %}
+            {% if today.is_grade6 %}
+                {% if today.exercise.title %}
+                    {% include 'parents/_correctanswerx.html' %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ol>
+</div>
+   {% endif %}
+
+ <!--grade 5-->
+   {% if student.student_name.is_grade5 %}
+    <div class=" w3-hover-white  w3-margin-top">
+        <ol class="w3-ul">
+            {% for today in todays %}
+                {% if today.is_grade7 %}
+                    {% if today.exercise.title %}
+                        {% include 'parents/_correctanswerx.html' %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </div>
+   {% endif %}
+
+ <!--grade 4-->
+   {% if student.student_name.is_grade4 %}
+   <div class=" w3-hover-white  w3-margin-top">
+    <ol class="w3-ul">
+        {% for today in todays %}
+            {% if today.is_grade7 %}
+                {% if today.exercise.title %}
+                    {% include 'parents/_correctanswerx.html' %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ol>
+</div>
+   {% endif %}
+
+ <!--grade 3-->
+   {% if student.student_name.is_grade3 %}
+   {% for today in todays %}
+   {% if today.is_grade3 %}
+        {% if today.exercise.title %}
+            {% include 'parents/_correctanswerx.html' %}
+        {% endif %}
+   {% endif %}
+   {% endfor %}
+   {% endif %}
+
+ <!--grade 2-->
+   {% if student.student_name.is_grade2 %}
+   <div class=" w3-hover-white  w3-margin-top">
+    <ol class="w3-ul">
+        {% for today in todays %}
+            {% if today.is_grade2 %}
+                {% if today.exercise.title %}
+                    {% include 'parents/_correctanswerx.html' %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ol>
+</div>
+   {% endif %}
+
+ <!--grade 1-->
+   {% if student.student_name.is_grade1 %}
+   <div class=" w3-hover-white  w3-margin-top">
+    <ol class="w3-ul">
+        {% for today in todays %}
+            {% if today.is_grade1 %}
+                {% if today.exercise.title %}
+                    {% include 'parents/_correctanswerx.html' %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </ol>
+</div>
+   {% endif %}
+{% endfor %}

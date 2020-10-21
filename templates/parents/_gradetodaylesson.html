@@ -1,0 +1,72 @@
+ <!--grade 8-->
+ {% if student.student_name.is_grade8 %}
+ {% for today in todays %}
+ {% if today.is_grade8 %}
+   {% include 'parents/_todayslesson.html' %}
+ {% endif %}
+ {% endfor %}
+ {% endif %}
+
+
+<!--grade 7-->
+ {% if student.student_name.is_grade7 %}
+ {% for today in todays %}
+ {% if today.is_grade7 %}
+   {% include 'parents/_todayslesson.html' %}
+ {% endif %}
+ {% endfor %}
+ {% endif %}
+
+ <!--grade 6-->
+   {% if student.student_name.is_grade6 %}
+   {% for today in todays %}
+   {% if today.is_grade6 %}
+     {% include 'parents/_todayslesson.html' %}
+   {% endif %}
+   {% endfor %}
+   {% endif %}
+
+ <!--grade 5-->
+   {% if student.student_name.is_grade5 %}
+   {% for today in todays %}
+   {% if today.is_grade5 %}
+     {% include 'parents/_todayslesson.html' %}
+   {% endif %}
+   {% endfor %}
+   {% endif %}
+
+ <!--grade 4-->
+   {% if student.student_name.is_grade4 %}
+   {% for today in todays %}
+   {% if today.is_grade4 %}
+     {% include 'parents/_todayslesson.html' %}
+   {% endif %}
+   {% endfor %}
+   {% endif %}
+
+ <!--grade 3-->
+   {% if student.student_name.is_grade3 %}
+   {% for today in todays %}
+   {% if today.is_grade3 %}
+     {% include 'parents/_todayslesson.html' %}
+   {% endif %}
+   {% endfor %}
+   {% endif %}
+
+ <!--grade 2-->
+   {% if student.student_name.is_grade2 %}
+   {% for today in todays %}
+   {% if today.is_grade2 %}
+     {% include 'parents/_todayslesson.html' %}
+   {% endif %}
+   {% endfor %}
+   {% endif %}
+
+ <!--grade 1-->
+   {% if student.student_name.is_grade1 %}
+   {% for today in todays %}
+   {% if today.is_grade1 %}
+     {% include 'parents/_todayslesson.html' %}
+   {% endif %}
+   {% endfor %}
+   {% endif %}

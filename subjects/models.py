@@ -183,7 +183,7 @@ class Answer(models.Model):
 class Today(models.Model):
     teacher = models.ForeignKey(Teacher, related_name='today_teacher', on_delete=models.DO_NOTHING, blank=False, null=True)
     lesson = models.ForeignKey(Lesson,  on_delete=models.CASCADE, blank=False, null=True)
-    exercise = models.ForeignKey(Exercise,  on_delete=models.CASCADE, blank=False, null=True)
+    exercise = models.ForeignKey(Exercise,  on_delete=models.CASCADE, blank=True, null=True)
     created_by = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, blank=False, null=True)
     is_grade1 = models.BooleanField(default=False)
     is_grade2 = models.BooleanField(default=False)

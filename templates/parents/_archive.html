@@ -1,0 +1,119 @@
+{% load static %}
+<div class="w3-container w3-padding-16 w3-border  w3-margin-top w3-ios-light-grey">
+    <header><h4>Past Week lessons </h4></header>
+    <p class="w3-small"> In your childs account, you can select lessons missed, to ensure your child is not left behind, or do it here for them if they are unable</p>
+    <div class="w3-container  w3-small">
+        
+    {% for student  in parent.student_set.all %}
+        <!--grade 8-->
+        {% if student.student_name.is_grade8 %}
+            {% for today in yesterdays %}
+                {% if today.is_grade8 %}
+                    <ul class="w3-ul">
+                        <a  href="{{today.lesson.get_absolute_url}}">
+                            <li class="w3-hover-green w3-padding">{{today.date_posted|date:"D, d, M, Y,"}} {{today.date_posted|time:"h:i a"}} <br> {{today.lesson}} | 
+                            <span class="w3-win8-cobalt w3-tag">{{today.lesson.subject}}</span>   </li>
+                        </a>
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+
+        <!--grade 7-->
+        {% if student.student_name.is_grade7 %}
+            {% for today in yesterdays %}
+                {% if today.is_grade7 %}
+                    <ul class="w3-ul">
+                        <a  href="{{today.lesson.get_absolute_url}}">
+                            <li class="w3-hover-green w3-padding">{{today.date_posted|date:"D, d, M, Y,"}} {{today.date_posted|time:"h:i a"}} <br> {{today.lesson}} | <span class="w3-win8-crimson w3-tag">{{today.lesson.subject}}</span> </li>
+                        </a>
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <!--grade 6-->
+        {% if student.student_name.is_grade6 %}
+            {% for today in yesterdays %}
+                {% if today.is_grade6 %}
+                    <ul class="w3-ul">
+                        <a  href="{{today.lesson.get_absolute_url}}">
+                            <li class="w3-hover-green w3-padding">{{today.date_posted|date:"D, d, M, Y,"}} {{today.date_posted|time:"h:i a"}} <br> {{today.lesson}} | <span class="w3-camo-black w3-tag">{{today.lesson.subject}}</span> </li>
+                        </a>
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <!--grade 5-->
+        {% if student.student_name.is_grade5 %}
+            {% for today in yesterdays %}
+                {% if today.is_grade5 %}
+                    <ul class="w3-ul">
+                        <a  href="{{today.lesson.get_absolute_url}}">
+                            <li class="w3-hover-green w3-padding">{{today.date_posted|date:"D, d, M, Y,"}} {{today.date_posted|time:"h:i a"}} <br> {{today.lesson}} | <span class="w3-win8-emerald w3-tag">{{today.lesson.subject}}</span> </li>
+                        </a>
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <!--grade 4-->
+        {% if student.student_name.is_grade4 %}
+            {% for today in yesterdays %}
+                {% if today.is_grade4 %}
+                    <ul class="w3-ul">
+                        <a  href="{{today.lesson.get_absolute_url}}">
+                            <li class="w3-hover-green w3-padding">{{today.date_posted|date:"D, d, M, Y,"}} {{today.date_posted|time:"h:i a"}} <br> {{today.lesson}} | <span class="w3-yellow w3-tag">{{today.lesson.subject}}</span> </li>
+                        </a>
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <!--grade 3-->
+        {% if student.student_name.is_grade3 %}
+            {% for today in yesterdays %}
+                {% if today.is_grade3 %}
+                    <ul class="w3-ul">
+                        <a  href="{{today.lesson.get_absolute_url}}">
+                            <li class="w3-hover-green w3-padding">{{today.date_posted|date:"D, d, M, Y,"}} {{today.date_posted|time:"h:i a"}} <br> {{today.lesson}} | <span class="w3-flat-turquoise w3-tag">{{today.lesson.subject}}</span> </li>
+                        </a>
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <!--grade 2-->
+        {% if student.student_name.is_grade2 %}
+            {% for today in yesterdays %}
+                {% if today.is_grade2 %}
+                    <ul class="w3-ul">
+                        <a  href="{{today.lesson.get_absolute_url}}">
+                            <li class="w3-hover-green w3-padding">{{today.date_posted|date:"D, d, M, Y,"}} {{today.date_posted|time:"h:i a"}} <br> {{today.lesson}} | <span class="w3-2019-fruit-dove w3-tag">{{today.lesson.subject}}</span> </li>
+                        </a>
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <!--grade 1-->
+        {% if student.student_name.is_grade1 %}
+            {% for today in yesterdays %}
+                {% if today.is_grade1 %}
+                    <ul class="w3-ul">
+                        <a  href="{{today.lesson.get_absolute_url}}">
+                            <li class="w3-hover-green w3-padding">{{today.date_posted|date:"D, d, M, Y,"}} {{today.date_posted|time:"h:i a"}} <br> {{today.lesson}} | <span class="w3-metro-magenta w3-tag">{{today.lesson.subject}}</span>  </li>
+                        </a>
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <header class="w3-hover-orange w3-button w3-hover-border-orange w3-dark-gray w3-border w3-hover-text-orange w3-block">
+        <a href="#lessons" class="w3-padding w3-hover-text-white  w3-text-orange"> Find All Other Lessons Here</a>
+    </header>
+</div>

@@ -1,0 +1,149 @@
+{% load static %}
+
+
+{% for student  in parent.student_set.all %}
+
+{% if student.student_name.is_grade8 %}
+
+    <div class="w3-white w3-margin-top ">
+            <ul class="w3-ul w3-hoverable w3-white">
+                    {% for answer in answers %}
+
+                        {% if answer.exercise.is_grade8 %}   
+                                {% if answer.name.first_name %}
+                                  {% include 'partials/_answers.html' %}
+                                {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+        </div>
+    
+{% endif %}
+
+
+<!--grade 7-->
+{% if student.student_name.is_grade7 %}
+
+    <div class="w3-white w3-margin-top ">
+            <ul class="w3-ul w3-hoverable w3-white">
+                    {% for answer in answers %}
+                        {% if answer.exercise.is_grade7 %}   
+                            {% if answer.name.first_name %}
+                                {% include 'partials/_answers.html' %}
+                            {% endif %}    
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+        </div>
+    
+{% endif %}
+
+<!--grade 6-->
+{% if student.student_name.is_grade6 %}
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+            <ul class="w3-ul w3-hoverable w3-white">
+                    {% for answer in answers %}
+                        {% if answer.exercise.is_grade6 %}   
+                            {% if answer.name.first_name %}
+                                {% include 'partials/_answers.html' %}
+                            {% endif %} 
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+        </div>
+    
+{% endif %}
+
+<!--grade 5-->
+{% if student.student_name.is_grade5 %}
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+            <ul class="w3-ul w3-hoverable w3-white">
+                    {% for answer in answers %}
+                        {% if answer.exercise.is_grade5 %}   
+                            {% if answer.name.first_name %}
+                                {% include 'partials/_answers.html' %}
+                            {% endif %} 
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+        </div>
+    
+{% endif %}
+
+<!-- grade 4 -->
+{% if student.student_name.is_grade4 %}
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+            <ul class="w3-ul w3-hoverable w3-white">
+                    {% for answer in answers %}
+                        {% if answer.exercise.is_grade4 %}   
+                            {% if answer.name.first_name %}
+                                {% include 'partials/_answers.html' %}
+                            {% endif %} 
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+        </div>
+    
+{% endif %}
+
+
+<!-- grade 3 -->
+{% if student.student_name.is_grade3 %}
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+      <div class="w3-container w3-hover-white w3-hover-shadow w3-card">
+        
+        </div>
+            <ul class="w3-ul w3-hoverable w3-white">
+                    {% for answer in answers %}
+                        {% if answer.exercise.is_grade3 %}   
+                            {% if answer.name.first_name %}
+                                {% include 'partials/_answers.html' %}
+                            {% endif %}     
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+        </div>
+    
+{% endif %}
+ 
+
+<!-- grade 2 -->
+{% if student.student_name.is_grade2 %}
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+      <div class="w3-container w3-hover-white w3-hover-shadow w3-card">
+        
+        </div>
+            <ul class="w3-ul w3-hoverable w3-white">
+                    {% for answer in answers %}
+                        {% if answer.exercise.is_grade2 %}   
+                            {% if answer.name.first_name %}
+                                {% include 'partials/_answers.html' %}
+                            {% endif %}   
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+        </div>
+    
+{% endif %}
+
+<!-- grade 1-->
+{% if student.student_name.is_grade1 %}
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+            <ul class="w3-ul w3-hoverable w3-white">
+                    {% for answer in answers %}
+                        {% if answer.name.first_name %}
+                            {% include 'partials/_answers.html' %}
+                        {% endif %} 
+                    {% endfor %}
+                </ul>
+        </div>
+    
+{% endif %}
+
+{% endfor %}

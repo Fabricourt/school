@@ -1,0 +1,98 @@
+<!--Notice-->
+<div>
+       
+    <div class="w3-container w3-white w3-border w3-margin-bottom   ">
+          <h2 class="w3-text-white w3-food-spearmint w3-block w3-padding " onclick="myFunction('notice')">
+                <i class="fa fa-circle fa-fw w3-text-green w3-xxlarge"></i>
+                Notice Board
+          </h2>  
+          <div class="w3-hide" id="notice">
+          {% for student  in parent.student_set.all %}
+          {% if student.student_name.is_grade8 %}
+                {% if noticeg8  %}  
+                  <header class="w3-win8-cobalt">
+                        <h3 class="w3-padding">Grade 8 notice</h3>    
+                  </header>   
+                      {% for notice in noticeg8 %}
+                            {% include 'parents/_noticex.html' %}
+                      {% endfor %}
+                {% endif %}
+          {% endif %}
+
+          {% if student.student_name.is_grade7 %}
+                {% if noticeg7  %}  
+                  <header class="w3-win8-crimson">
+                        <h3 class="w3-padding">Grade 7 notice</h3>    
+                  </header>     
+                      {% for notice in noticeg7 %}
+                            {% include 'parents/_noticex.html' %}
+                      {% endfor %}
+                {% endif %}
+          {% endif %}
+          {% if student.student_name.is_grade6 %}
+                {% if noticeg6  %} 
+                  <header class="w3-camo-black">
+                        <h3 class="w3-padding">Grade 6 notice</h3>    
+                  </header>      
+                      {% for notice in noticeg6 %}
+                            {% include 'parents/_noticex.html' %}
+                      {% endfor %}
+                {% endif %}
+          {% endif %}
+          {% if student.student_name.is_grade5 %}
+                {% if noticeg5  %}   
+                  <header class="w3-win8-emerald ">
+                        <h3 class="w3-padding">Grade 5 notice</h3>    
+                  </header>    
+                      {% for notice in noticeg5 %}
+                            {% include 'parents/_noticex.html' %}
+                      {% endfor %}
+                {% endif %}
+          {% endif %}
+          {% if student.student_name.is_grade4 %}
+                {% if noticeg4  %}     
+                  <header class="w3-yellow">
+                        <h3 class="w3-padding">Grade 4 notice</h3>    
+            `     </header>  
+                      {% for notice in noticeg4 %}
+                            {% include 'parents/_noticex.html' %}
+                      {% endfor %}
+                {% endif %}
+          {% endif %}
+          {% if student.student_name.is_grade3 %}
+                {% if noticeg3  %}     
+                  <header class="w3-flat-turquoise">
+                        <h3 class="w3-padding">Grade 3 notice</h3>    
+      `           </header> 
+                      {% for notice in noticeg3 %}
+                            {% include 'parents/_noticex.html' %}
+                      {% endfor %}
+                {% endif %}
+          {% endif %}
+          {% if student.student_name.is_grade2 %}
+                {% if noticeg2  %}     
+                  <header class="w3-2019-fruit-dove">
+                        <h3 class="w3-padding">Grade 2 notice</h3>    
+                  </header> 
+                      {% for notice in noticeg2 %}
+                            {% include 'parents/_noticex.html' %}
+                      {% endfor %}
+                {% endif %}
+          {% endif %}
+          {% if student.student_name.is_grade1 %}
+                {% if noticeg1  %}     
+                  <header class="w3-metro-magenta">
+                        <h3 class="w3-padding">Grade 1 notice</h3>    
+                  </header> 
+                      {% for notice in noticeg1 %}
+                            {% include 'parents/_noticex.html' %}
+                      {% endfor %}
+                {% endif %}
+          {% endif %}
+      {% endfor %}
+    </div>
+    
+</div>
+</div>
+<!-- end Notice-->
+

@@ -1,10 +1,14 @@
 {% load static %}
-<div class="w3-container w3-padding-16 w3-border w3-margin-bottom w3-white">
+<button onclick="myFunction('{{today.lesson.lesson_title|capfirst}}')" class="w3-btn w3-block w3-margin-top w3-border-blue w3-hover-green w3-hover-border-green w3-border w3-left-align">{{today.lesson.lesson_title|capfirst}}</button>
+
+<div id="{{today.lesson.lesson_title|capfirst}}" class="w3-border w3-white w3-hide">
+
+<div class="w3-container w3-padding-16  w3-margin-bottom w3-white">
   <div >
     <span class="w3-card w3-block w3-yellow" data-toggle="modal" data-target="#inquiryModal">
       <span><img src="{{ today.lesson.topic.subject.teacher.image.url }}" alt=""  class="w3-card-4 w3-circle" style="width: 50px; height:55px;"></span>
       
-       Teacher | {{today.teacher.name.first_name}} {{today.teacher.name.last_name}} {{today.teacher.name.phone}}
+       Teacher | {{today.lesson.teacher.name.first_name}} {{today.lesson.teacher.name.last_name}} {{today.teacher.name.phone}}
       <button class="btn-primary w3-hide btn-s" data-toggle="modal" data-target="#inquiryModal">Make An Inquiry</button>
     </span>
   </div>
@@ -24,8 +28,8 @@
          </video>
      </div>
 
-      <button onclick="myFunction('{{today.lesson.lesson_title}}')" class="w3-btn w3-block w3-margin-top w3-border-black w3-border w3-left-align">{{today.lesson.lesson_title|capfirst}} <span class="w3-tag">Notes</span></button>
-      <div id="{{today.lesson.lesson_title}}" class="w3-container w3-white w3-hide">
+      <button onclick="myFunction('{{today.lesson.date_posted}}')" class="w3-btn w3-block w3-margin-top w3-border-black w3-border w3-left-align">{{today.lesson.lesson_title|capfirst}} <span class="w3-tag">Notes</span></button>
+      <div id="{{today.lesson.date_posted}}" class="w3-container w3-white w3-hide">
         <h4>{{today.lesson.lesson_title|capfirst}}</h4>
         <p>{{today.lesson.content|safe}}</p>
 
@@ -46,6 +50,17 @@
           </div>
       </div>
       </div>
-    
-    
+    </div>
+
   </div>
+
+  <script>
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+    </script>

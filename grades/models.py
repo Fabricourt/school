@@ -6,6 +6,8 @@ from accounts.models import CustomUser
 from ckeditor.fields import RichTextField
 from PIL import Image
 from colors.models import Color
+from teachers.models import Teacher
+from students.models import Student
 
 
 #from lessons.models import *
@@ -17,11 +19,14 @@ from colors.models import Color
 class Grade(models.Model):
     grade_name = models.CharField(max_length=100, blank=False, null=True)
     slug = models.SlugField(max_length=250, blank=False, null=True, unique_for_date='date_posted', help_text='You must re enter the class name using dashes e.g class 7 west = class-7-west on the slug field')
-    classteacher =  models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, related_name="class_teacher", blank=False, null=True)
-    classmonitor = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, related_name="class_monitor",blank=False, null=True)
-    classprefect = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, related_name="class_prefect",blank=False, null=True)
-    colors = models.ForeignKey(Color, on_delete=models.DO_NOTHING, blank=False, null=True)
-    created_by = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, blank=False, null=True)
+    classteacher =  models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, related_name="class_teacher", blank=True, null=True)
+    classmonitor = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, related_name="class_monitor",blank=True, null=True)
+    classprefect = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, related_name="class_prefect",blank=True, null=True)
+    class_teacher =  models.ForeignKey(Teacher, on_delete=models.DO_NOTHING, related_name="class_teacher", blank=True, null=True)
+    class_monitor = models.ForeignKey(Student, on_delete=models.DO_NOTHING, related_name="class_monitor",blank=True, null=True)
+    class_prefect = models.ForeignKey(Student, on_delete=models.DO_NOTHING, related_name="class_prefect",blank=True, null=True)
+    colors = models.ForeignKey(Color, on_delete=models.DO_NOTHING, blank=True, null=True)
+    created_by = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, blank=True, null=True)
     date_posted = models.DateTimeField(default=timezone.now)
     is_grade1 = models.BooleanField(default=False)
     is_grade2 = models.BooleanField(default=False)

@@ -1,0 +1,21 @@
+<div class="w3-white w3-text-grey {{grade.color.border_color }} w3-margin-bottom">
+    <div class="w3-container w3-row">
+        <div class="w3-third">
+            {% if grade.class_teacher.name.image %}
+                <img src="{{ grade.class_teacher.name.image.url }}" style="width:100%; height: 150px;" class="" alt="Avatar">
+            {% endif %}
+        </div>
+        <div class="w3-twothird">
+            <ul class="w3-ul">
+                <li>{{grade.class_teacher.name.title}} </li>
+                <li>{{grade.class_teacher.name.first_name}} {{grade.class_teacher.name.last_name}} </li>
+                <li>{{grade.class_teacher.name.home}}</li>
+                <li>{{grade.class_teacher.name.email}} | {{grade.class_teacher.name.phone}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="w3-container w3-hide">
+        <p>class Prefect : {{grade.classprefect}}</p>
+        <p>class Monitor : {{grade.classprefect}}</p>
+    </div>
+</div>
