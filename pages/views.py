@@ -62,7 +62,7 @@ def index(request):
 @login_required
 def central(request):
     subjects = Subject.objects.order_by('date_posted').filter(is_published=True)
-    teachers = Teacher.objects.order_by('hire_date')
+    teachers = Teacher.objects.order_by('hire_date').filter(is_published=True)
     students = Student.objects.order_by('account_date').filter(is_published=True)
     parents = Parent.objects.order_by('account_date').filter(is_published=True)
     topics = Topic.objects.order_by('date_posted').filter(is_published=True)

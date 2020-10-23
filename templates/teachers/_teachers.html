@@ -1,0 +1,45 @@
+
+<div onclick="myFunction('teachers')" class=" w3-block w3-margin-top w3-margin-bottom w3-padding w3-border-purple w3-hover-white  w3-hover-border-white w3-2017-ballet-slipper w3-border w3-left-align"> <span class="w3-tag   w3-block w3-food-plum"> Teachers</span></div>
+
+<div id="teachers" class="w3-hide">
+    <div class="w3-white">
+        <ol  >
+            {% for teacher in teachers %}
+                {% if user.is_teacher %}
+                        {% if teacher.name.first_name %}
+                            <li class="w3-padding-16 w3-tiny w3-border-bottom ">
+                                {% if teacher.name.image %}
+                                    <img src="{{teacher.name.image.url}}" alt="Image" class="w3-left w3-margin-right" style="height:50px; width:50px">
+                                {% endif %}
+                                <span class="w3-small">
+                                    {{teacher.name.first_name}} 
+                                        |
+                                    {% if teacher.name.title %}
+                                        {{teacher.name.title}} 
+                                    {% endif %}
+                                    <br> 
+                                    {% if teacher.name.phone %}
+                                        {{teacher.name.phone}} 
+                                    {% endif %}
+                                    <br>
+                                    {% if teacher.name.email %}
+                                        {{teacher.name.email}} 
+                                    {% endif %}
+                                </span>
+                            </li>
+                        {% endif %}
+                {% endif %}
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+<script>
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+    </script>

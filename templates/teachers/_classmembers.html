@@ -1,0 +1,24 @@
+<div onclick="myFunction('classmembers')" class=" w3-block w3-margin-top w3-margin-bottom w3-padding w3-border-green w3-hover-white  w3-hover-shadow w3-hover-border-white w3-food-mint w3-border w3-left-align"> <span class="w3-tag   w3-block  w3-highway-green "> Students</span></div>
+
+<div id="classmembers" class="w3-hide">
+    <div class="w3-white">
+        {% include 'teachers/_grade8.html' %}
+        {% include 'teachers/_grade7.html' %}
+        {% include 'teachers/_grade6.html' %}
+        {% include 'teachers/_grade5.html' %}
+        {% include 'teachers/_grade4.html' %}
+        {% include 'teachers/_grade3.html' %}
+        {% include 'teachers/_grade2.html' %}
+        {% include 'teachers/_grade1.html' %}
+    </div>
+</div>
+<script>
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+    </script>

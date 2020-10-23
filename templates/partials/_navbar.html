@@ -8,7 +8,6 @@
   <div class="w3-bar ">
     <a class="w3-bar-item " href="{% url 'index' %}">
       <img src="{% static 'img/logos.png' %}" class="logo w3-circle w3-card-4  "  alt="" width="60px" height="60px">
-      
     </a>
     {% if user.image %}
     <a class="w3-bar-item " href="">
@@ -20,6 +19,9 @@
     <a class="w3-bar-item w3-margin-top w3-hover-text-orange" href="{% url 'central' %}">Parents Account </a>
     {% endif %}
     
+    {% if user.is_teacher %}
+      <a class="w3-bar-item w3-margin-top w3-hover-text-orange w3-hide" href="{% url 'central' %}">Staffroom </a>
+    {% endif %}
 
 
     {% if user.is_authenticated %}

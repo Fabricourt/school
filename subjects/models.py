@@ -50,6 +50,7 @@ class Topic(models.Model):
     slug = models.SlugField(max_length=200, blank=False, null=True, unique=True)
     grade_name = models.ForeignKey(Grade, on_delete=models.CASCADE)
     overview = RichTextField(blank=True, null=True, help_text='input specific learning outcomes, val-ues, pcl, & core competence')
+    created_by = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, blank=False, null=True)
     date_posted = models.DateTimeField(auto_now_add=True)
     is_grade1 = models.BooleanField(default=False)
     is_grade2 = models.BooleanField(default=False)

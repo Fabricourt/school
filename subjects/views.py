@@ -19,6 +19,133 @@ from django.views.generic import (
 )
 
 
+
+
+class SubjectListView(ListView):
+    model = Subject
+    template_name = 'Subjects/subjects.html' 
+    context_object_name = 'subjects'
+    ordering = ['-date_posted']
+    paginate_by = 1
+
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Lessons'] = Lesson.objects.all()
+        context['mvp_lessons'] = Lesson.objects.all().filter(is_mvp=True)
+        context['topics'] = Topic.objects.all()
+        return context
+
+
+class SubjectDetailView(DetailView):
+    model = Subject
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Lessons'] = Lesson.objects.all()
+        context['topics'] = Topic.objects.all()
+        return context
+
+
+class SubjectCreateView(LoginRequiredMixin, CreateView):
+    model = Subject
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+
+class SubjectUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Subject
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == subject.created_by:
+            return True
+        return False
+
+
+class SubjectDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Subject
+    success_url = '/'
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == subject.created_by:
+            return True
+        return False
+
+#topics
+
+
+
+class TopicListView(ListView):
+    model = Topic
+    template_name = 'Topics/topic.html' 
+    context_object_name = 'topics'
+    ordering = ['-date_posted']
+    paginate_by = 1
+
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Lessons'] = Lesson.objects.all()
+        context['mvp_lessons'] = Lesson.objects.all().filter(is_mvp=True)
+        context['topics'] = Topic.objects.all()
+        return context
+
+
+class TopicDetailView(DetailView):
+    model = Topic
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Lessons'] = Lesson.objects.all()
+        context['topics'] = Topic.objects.all()
+        return context
+
+
+class TopicCreateView(LoginRequiredMixin, CreateView):
+    model = Topic
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+
+class TopicUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Topic
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == topic.created_by:
+            return True
+        return False
+
+
+class TopicDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Subject
+    success_url = '/'
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == topic.created_by:
+            return True
+        return False
+
+# lesson
 class LessonDetailView(DetailView):
     model = Lesson
 
@@ -83,19 +210,8 @@ def exercise(request, slug):
 
 
 
-def answer(request, answer_id):
-  answer = get_object_or_404(Answer, pk=answer_id)
-  queryset = Exercise.objects.filter(status=1).order_by("-created_on")
-  classes = Class.objects.order_by('class_name').filter(is_published=True)
-  
-  context = {
-    'queryset': queryset,
-    'answer': answer,
-    "classes": classes,
-  }
-  return render(request, 'exercises/answer.html', context)
 
-
+# exercise
 class UserExerciseListView(generic.ListView):
 
     model = Exercise
@@ -114,6 +230,19 @@ class UserExerciseListView(generic.ListView):
         user = get_object_or_404(CustomUser, username=self.kwargs.get('username'))
         return Exercise.objects.filter(teacher=user).order_by("-created_on") 
           
+# Answer
+def answer(request, answer_id):
+  answer = get_object_or_404(Answer, pk=answer_id)
+  queryset = Exercise.objects.filter(status=1).order_by("-created_on")
+  classes = Class.objects.order_by('class_name').filter(is_published=True)
+  
+  context = {
+    'queryset': queryset,
+    'answer': answer,
+    "classes": classes,
+  }
+  return render(request, 'exercises/answer.html', context)
+
 
 class AnswerCreateView(LoginRequiredMixin, CreateView):
     model = Answer
@@ -123,17 +252,12 @@ class AnswerCreateView(LoginRequiredMixin, CreateView):
         form.instance.name = self.request.user
         return super().form_valid(form)
     
-      
-   
-
 
 def answer(request, answer_id):
     answer = get_object_or_404(Answer, pk=answer_id)
-
     context = {
         'answer': answer
     }
-
     return render(request, 'exercises/answer.html', context)
 
 

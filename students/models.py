@@ -11,6 +11,8 @@ from parents.models import *
 
 class Student(models.Model):
     student_name =  models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, related_name="student_name", blank=False, null=True)
+    class_title = models.CharField(max_length=100, blank=True, null=True)
+    school_title = models.CharField(max_length=100, blank=True, null=True)
     contact_parent =  models.ForeignKey(Parent, on_delete=models.DO_NOTHING,  blank=True, null=True)
     parent_father =  models.ForeignKey(Parent, on_delete=models.DO_NOTHING, related_name="father", blank=True, null=True)
     parent_mother =  models.ForeignKey(Parent, on_delete=models.DO_NOTHING, related_name="mother", blank=True, null=True)
