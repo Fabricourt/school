@@ -3,24 +3,19 @@
 {% if user.is_grade8 %}
 
     <div class="w3-white w3-margin-top w3-hide-small">
-      <div class="w3-container w3-hover-white w3-hover-shadow w3-card">
-          
-        <h4 >
-            <a href="" class="w3-hover-text-green">
-                Exercise Answers Posts Here
-            </a>
-        </h4>
-        </div>
             <ul class="w3-ul w3-hoverable w3-white">
-                    {% for answer in answers %}
+                {% for answer in answers %}
                         {% if answer.exercise.is_grade8 %}   
-                                {% if answer.name.first_name %}
+                        {% if answer.name.student_name.first_name == user.first_name %}
+                                {% if answer.name.student_name.first_name %}
                                   {% include 'partials/_answers.html' %}
                                 {% endif %}
+                        {% endif %}
                         {% endif %}
                     {% endfor %}
                 </ul>
         </div>
+   
     
 {% endif %}
 
@@ -29,14 +24,7 @@
 {% if user.is_grade7 %}
 
     <div class="w3-white w3-margin-top w3-hide-small">
-      <div class="w3-container w3-hover-white w3-hover-shadow w3-card">
-          
-        <h4 >
-            <a href="" class="w3-hover-text-green">
-                Exercise Answers Posts Here
-            </a>
-        </h4>
-        </div>
+
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
                         {% if answer.exercise.is_grade7 %}   
@@ -54,14 +42,7 @@
 {% if user.is_grade6 %}
 
     <div class="w3-white w3-margin-top w3-hide-small">
-      <div class="w3-container w3-hover-white w3-hover-shadow w3-card">
-          
-        <h4 >
-            <a href="" class="w3-hover-text-green">
-                Exercise Answers Posts Here
-            </a>
-        </h4>
-        </div>
+
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
                         {% if answer.exercise.is_grade6 %}   
@@ -79,14 +60,7 @@
 {% if user.is_grade5 %}
 
     <div class="w3-white w3-margin-top w3-hide-small">
-      <div class="w3-container w3-hover-white w3-hover-shadow w3-card">
-          
-        <h4 >
-            <a href="" class="w3-hover-text-green">
-                Exercise Answers Posts Here
-            </a>
-        </h4>
-        </div>
+
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
                         {% if answer.exercise.is_grade5 %}   
@@ -104,14 +78,7 @@
 {% if user.is_grade4 %}
 
     <div class="w3-white w3-margin-top w3-hide-small">
-      <div class="w3-container w3-hover-white w3-hover-shadow w3-card">
-          
-        <h4 >
-            <a href="" class="w3-hover-text-green">
-                Exercise Answers Posts Here
-            </a>
-        </h4>
-        </div>
+
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
                         {% if answer.exercise.is_grade4 %}   
@@ -130,14 +97,7 @@
 {% if user.is_grade3 %}
 
     <div class="w3-white w3-margin-top w3-hide-small">
-      <div class="w3-container w3-hover-white w3-hover-shadow w3-card">
-          
-        <h4 >
-            <a href="" class="w3-hover-text-green">
-                Exercise Answers Posts Here
-            </a>
-        </h4>
-        </div>
+
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
                         {% if answer.exercise.is_grade3 %}   
@@ -156,14 +116,7 @@
 {% if user.is_grade2 %}
 
     <div class="w3-white w3-margin-top w3-hide-small">
-      <div class="w3-container w3-hover-white w3-hover-shadow w3-card">
-          
-        <h4 >
-            <a href="" class="w3-hover-text-green">
-                Exercise Answers Posts Here
-            </a>
-        </h4>
-        </div>
+
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
                         {% if answer.exercise.is_grade2 %}   
@@ -181,14 +134,7 @@
 {% if user.is_grade1 %}
 
     <div class="w3-white w3-margin-top w3-hide-small">
-      <div class="w3-container w3-hover-white w3-hover-shadow w3-card">
-          
-        <h4 >
-            <a href="" class="w3-hover-text-green">
-                Exercise Answers Posts Here
-            </a>
-        </h4>
-        </div>
+
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
                         {% if answer.name.first_name %}

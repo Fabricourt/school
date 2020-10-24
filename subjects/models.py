@@ -37,7 +37,7 @@ class Subject(models.Model):
     
 
     def get_absolute_url(self):
-        return reverse('subject-detail', kwargs={'slug': self.slug})
+        return reverse('subject-detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.subject_name
@@ -68,7 +68,7 @@ class Topic(models.Model):
         ordering = ['date_posted']
 
     def get_absolute_url(self):
-        return reverse('topic-detail', kwargs={'slug': self.slug})
+        return reverse('topic-detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.title
@@ -115,14 +115,12 @@ class Lesson(models.Model):
         verbose_name_plural = 'Sub_strands'
 
     def get_absolute_url(self):
-        return reverse('lesson-detail', kwargs={'slug': self.slug})
+        return reverse('lesson-detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.lesson_title
 
 STATUS = ((0, "Draft"), (1, "Publish"))
-
-
 
 #Exercise
 class Exercise(models.Model):
@@ -157,12 +155,13 @@ class Exercise(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("exercise", kwargs={"slug": str(self.slug)})
+        return reverse("exercise", kwargs={'pk': self.pk})
 
 
 
 class Answer(models.Model):
-    name = models.ForeignKey(CustomUser,  on_delete=models.CASCADE, blank=True, null=True, related_name="studentAnswering")
+    name = models.ForeignKey(Student,  on_delete=models.CASCADE, blank=True, null=True, related_name="studentAnswering")
+    teacher = models.ForeignKey(Teacher,  on_delete=models.CASCADE, blank=True, null=True, related_name="subjectteacher")
     #upload = models.FileField(upload_to='files/%Y/%m/%d/', default='blank.pdf', blank=True, null=True, help_text="upload your answer doc here")
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE, related_name="answers")
     answers_typed = RichTextField(blank=True, null=True)
@@ -199,3 +198,6 @@ class Today(models.Model):
     
     def __str__(self):
         return self.lesson.lesson_title
+
+    def get_absolute_url(self):
+        return reverse('today-detail', kwargs={'pk': self.pk})

@@ -1,0 +1,111 @@
+
+<style>
+    html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+    </style>
+    
+    
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top" style="max-width:1400px;">
+      <!-- The Grid -->
+      <div class="w3-row-padding">
+      
+        <!-- Left Column -->
+        <div class="w3-third">
+            <div>
+            {% for teacher in teachers %}    
+            {% if teacher.name.first_name == user.first_name %}
+          
+            <div class="w3-display-container w3-white w3-text-grey">
+            {% if teacher.name.image.url %}
+              <img src="{{teacher.name.image.url}}" style="width:100%; height: 220px;" class="" alt="Avatar">
+              <div class="w3-display-bottomleft w3-card-4 w3-container w3-win8-emerald w3-opacity-min w3-block w3-text-white">
+                <h2>{{teacher.name.first_name}} {{teacher.name.last_name}}</h2>
+              </div>
+            {% endif %} 
+            </div>
+            <div class="w3-container w3-padding w3-white w3-text-grey">
+                <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-green w3-large w3-card-4"></i>{{teacher.name.title|capfirst}}</p>
+                <p><i class="fa fa-home fa-fw w3-margin-right w3-green w3-large w3-card-4"></i>{{teacher.name.address}}</p>
+                <p><i class="fa fa-envelope fa-fw w3-margin-right w3-green w3-large w3-card-4"></i>{{teacher.name.email}}</p>
+                <p><i class="fa fa-phone fa-fw w3-margin-right w3-green w3-large w3-card-4"></i>{{teacher.name.phone}}</p>
+            </div>
+          
+                
+            {% endif %} 
+            {% endfor %}
+    
+            <div class='w3-margin-bottom'>
+              {% include 'teachers/_classmembers.html' %}
+            </div>
+    
+            <div class='w3-margin-bottom'>
+              {% include 'teachers/_teachers.html' %}
+            </div>
+    
+            <div class='w3-margin-bottom'>
+              {% include 'teachers/_answers.html' %}
+            </div>
+            <br>
+          
+          </div>
+          <br>
+    
+        <!-- End Left Column -->
+        </div>
+    
+        <!-- Right Column -->
+        <div class="w3-twothird">
+        
+          <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <h2 class="w3-text-green w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right  w3-xxlarge w3-text-green"></i><b>STAFFROOM</b></h2>
+            <div class="w3-container">
+              <hr>
+            </div>
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b> + Add</b></h5>
+              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>pick subjects topics and lessons to add  here</h6>
+              <a href="{% url 'subject-create' %}"><button class="w3-win8-emerald w3-card-4 w3-border-green" style="width:130px; margin: 1px;">Learning Area</button></a>
+              <a href="{% url 'topic-create' %}"><button class="w3-win8-emerald w3-card-4 w3-border-green" style="width:130px; margin: 1px;">Strands</button></a>
+              <a href="{% url 'lesson-create' %}"><button class="w3-win8-emerald w3-card-4 w3-border-green" style="width:130px; margin: 1px;">Sub Strands</button></a>
+    
+              <hr>
+            </div>
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>+ Add</b></h5>
+              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>add todays lessons and Exercises here</h6>
+              <a href="{% url 'today-create' %}"><button class="w3-win8-emerald w3-card-4 w3-border-green" style="width:130px; margin: 1px;">Todays lesson</button></a>
+              <a href="{% url 'exercise-create' %}"><button class="w3-win8-emerald w3-card-4 w3-border-green" style="width:130px; margin: 1px;">Exercises</button></a>
+              <br>
+            </div>
+            <hr>
+            <div class="w3-container w3-hide w3-margin-bottom">
+              <h5 class="w3-opacity"><b>+ Add</b></h5>
+              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>add Notices  here</h6>
+              <a href=""><button class="w3-win8-emerald  w3-card-4 w3-border-green" style="width:130px; margin: 1px;">Notices</button></a>
+              <br>
+            </div>
+          </div>
+    
+          <div class="w3-container w3-card w3-white">
+            <h2 class="w3-text-green w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xlarge w3-text-green"></i>Learning Areas / Subjects</h2>
+            <div class="">
+              {% include 'subjects/_subjectnav.html' %}
+          </div>
+    
+        <!-- End Right Column -->
+        </div>
+       
+      <!-- End Grid -->
+      </div>
+    
+    
+      
+      <!-- End Page Container -->
+    </div>
+    
+    <footer class="w3-container w3-flat-midnight-blue w3-padding-32 w3-center w3-margin-top">
+      <a href="" class="w3-hover-text-amber"><i class="fa fa-twitter w3-text-aqua "></i>Twitter</a>|
+      <a href="" class="w3-hover-text-amber"><i class="fa fa-facebook w3-text-aqua "></i>Facebook</a>
+      <a href="" class="w3-hover-text-amber"><i class="fa fa-instagram w3-text-aqua "></i>|Instagram</a>
+    </footer>
+    

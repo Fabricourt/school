@@ -1,8 +1,8 @@
 {% load static %}
 
     
-    <div class="w3-container  w3-border w3-margin-top" >
-        <header class="w3-card-4 w3-padding-16 w3-orange w3-margin-top w3-margin-bottom w3-text-white">  
+    <div class="   w3-margin-top" >
+        <header class="w3-card-4  w3-orange w3-margin-top w3-margin-bottom w3-text-white">  
             <h3 class="w3-text-white ">
                 <i class="fa fa-star w3-padding fa-fw w3-margin-right w3-xlarge w3-text-white"></i>
                 Subject
@@ -10,7 +10,7 @@
         </header>
       
         <div>
-            <ol class="w3-orange w3-text-white">
+            <ol class=" w3-text-white">
                 {% if user.is_grade8 %}
                     {% for subject in subjects %}
                         {% if subject.is_grade8 %}

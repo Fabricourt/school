@@ -7,7 +7,7 @@ class NoticeAdmin(admin.ModelAdmin):
   list_filter = ('title',)
   list_editable = ('is_published',)
   search_fields = ('title', 'author', )
-  prepopulated_fields = {"slug": ('title',)}
+  #prepopulated_fields = {"slug": ('title',)}
   list_per_page = 25
   
 

@@ -3,17 +3,16 @@
 {% block content %}
 
 <nav class="w3-padding w3-metro-darken w3-text-amber w3-margin-bottom ">
-    
-    
-    
-    
-    {% if answer.name == user %}
+    {% if user.is_teacher %}
     <div>
       
-      <a href="{% url 'central' %}" class="btn  btn-sm mt-1  mb-1 w3-border-amber w3-margin-right w3-highway-yellow w3-left w3-hover-white">Back To class</a>
+      <a href="{% url 'central' %}" class="btn  btn-sm mt-1  mb-1 w3-border-amber w3-margin-right w3-highway-yellow w3-left w3-hover-white">Back To staffroom</a>
       {% if answer.unmarked %}
-      <a class="btn btn-sm mt-1 mb-1  w3-border-green  w3-highway-green w3-hover-white" href="{% url 'answer-update' object.id %}">Update</a>
-      <a class="btn btn-sm mt-1 mb-1  w3-border-red  w3-highway-red  w3-hover-white" href="{% url 'answer-delete' object.id %}">Delete</a>
+      <a class="btn btn-sm mt-1 mb-1  w3-border-green  w3-highway-green w3-hover-white" href="{% url 'answer-update' object.id %}">Mark Student Answer</a>
+      <a class="btn btn-sm mt-1 mb-1  w3-border-red w3-hide w3-highway-red   w3-hover-white" href="{% url 'answer-delete' object.id %}">Delete</a>
+      {% else %}
+      <a class="btn btn-sm mt-1 mb-1  w3-border-green  w3-highway-green w3-hover-white" href="{% url 'answer-update' object.id %}">ReMark Student Answer</a>
+      <a class="btn btn-sm mt-1 mb-1  w3-border-red w3-hide w3-highway-red   w3-hover-white" href="{% url 'answer-delete' object.id %}">Delete</a>
       {% endif %}
     </div>
   {% endif %}     
@@ -29,9 +28,31 @@
                 </div>
 
                     <div class="">
+                        {% if user.is_student %}
+                        {% if answer.unmarked %}
                         <h1 class="w3-padding-64 w3-xxlarge w3-center w3-text-blue">Thank you<br>for posting your answer  
                         <p class="w3-large w3-border-top w3-border-green w3-text-green w3-padding">Below is the answer you posted
-                            <br><br>
+                        {% else %}
+                        <h1 class="w3-padding-64 w3-xxlarge w3-center w3-text-green">Check Teacher<br>
+                            response to your Answer
+                        <p class="w3-large w3-border-top w3-border-green w3-text-green w3-padding">Below 
+                        <br><br>
+                        {% endif %}
+                        {% else %}
+                        {% if user.is_teacher %}
+                        {% if answer.unmarked %}
+                        <h1 class="w3-padding-64 w3-xxlarge w3-center w3-text-blue">Your yet to mark
+                            <span class="w3-tag w3-red">{{answer.name}} </span> answer
+                        <p class="w3-large w3-border-top w3-border-green w3-text-green w3-padding">Below 
+                        {% else %}
+                        <h1 class="w3-padding-64 w3-xxlarge w3-center w3-text-green">Do you wish to remark the <span class="w3-tag w3-green">{{answer.name}}</span> answer <br> 
+                            
+                        <p class="w3-large w3-border-top w3-border-green w3-text-green w3-padding">Below </p>
+                       
+                        {% endif %}
+                        {% endif %}
+                        {% endif %}
+                                
                             <span class="w3-tag">current answer status --></span>  
                                             {% if answer.unmarked %}
                                             <span class="w3-red   ">-Unmarked-</span>

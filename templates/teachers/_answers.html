@@ -1,0 +1,193 @@
+{% load static %}
+<div onclick="myFunction('answers')" class=" w3-block w3-margin-top w3-margin-bottom w3-padding w3-border-blue w3-hover-white  w3-hover-shadow w3-hover-border-white w3-2017-island-paradise w3-border w3-left-align"> <span class="w3-tag   w3-block  w3-2017-lapis-blue "> Student Exercise Answers</span></div>
+
+<div id="answers" class="w3-container w3-hide">
+{% if user.is_grade8 %}
+{% if user.is_teacher %}
+
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+            <ul class="w3-ul w3-hoverable w3-white">
+                {% for answer in answers %}
+                {% if answer.teacher.name.first_name == user.first_name %}
+                {% if answer.exercise.is_grade8 %}   
+                    {% if answer.name.student_name.first_name %}
+                        {% include 'teachers/_answersstudents.html' %}
+                    {% endif %}   
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+                </ul>
+        </div>
+   
+{% endif %}
+{% endif %}
+
+
+<!--grade 7-->
+{% if user.is_grade7 %}
+{% if user.is_teacher %}
+
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+            <ul class="w3-ul w3-hoverable w3-white">
+                {% for answer in answers %}
+                {% if answer.teacher.name.first_name == user.first_name %}
+                {% if answer.exercise.is_grade7 %}   
+                    {% if answer.name.student_name.first_name %}
+                        {% include 'teachers/_answersstudents.html' %}
+                    {% endif %}   
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+                </ul>
+        </div>
+   
+{% endif %}
+{% endif %} 
+
+<!--grade 6-->
+{% if user.is_grade6 %}
+{% if user.is_teacher %}
+
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+            <ul class="w3-ul w3-hoverable w3-white">
+                {% for answer in answers %}
+                {% if answer.teacher.name.first_name == user.first_name %}
+                {% if answer.exercise.is_grade6 %}   
+                    {% if answer.name.student_name.first_name %}
+                        {% include 'teachers/_answersstudents.html' %}
+                    {% endif %}   
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+                </ul>
+        </div>
+   
+{% endif %}
+{% endif %} 
+
+<!--grade 5-->
+{% if user.is_grade5 %}
+{% if user.is_teacher %}
+
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+            <ul class="w3-ul w3-hoverable w3-white">
+                {% for answer in answers %}
+                {% if answer.teacher.name.first_name == user.first_name %}
+                {% if answer.exercise.is_grade5 %}   
+                    {% if answer.name.student_name.first_name %}
+                        {% include 'teachers/_answersstudents.html' %}
+                    {% endif %}   
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+                </ul>
+        </div>
+   
+{% endif %}
+{% endif %} 
+
+<!-- grade 4 -->
+{% if user.is_grade4 %}
+{% if user.is_teacher %}
+
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+            <ul class="w3-ul w3-hoverable w3-white">
+                {% for answer in answers %}
+                {% if answer.teacher.name.first_name == user.first_name %}
+                {% if answer.exercise.is_grade4 %}   
+                    {% if answer.name.student_name.first_name %}
+                        {% include 'teachers/_answersstudents.html' %}
+                    {% endif %}   
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+                </ul>
+        </div>
+   
+{% endif %}
+{% endif %}
+
+
+<!-- grade 3 -->
+{% if user.is_grade3 %}
+{% if user.is_teacher %}
+
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+            <ul class="w3-ul w3-hoverable w3-white">
+                {% for answer in answers %}
+                {% if answer.teacher.name.first_name == user.first_name %}
+                {% if answer.exercise.is_grade3 %}   
+                    {% if answer.name.student_name.first_name %}
+                        {% include 'teachers/_answersstudents.html' %}
+                    {% endif %}   
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+                </ul>
+        </div>
+   
+{% endif %}
+{% endif %}
+ 
+
+<!-- grade 2 -->
+{% if user.is_grade2 %}
+{% if user.is_teacher %}
+
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+            <ul class="w3-ul w3-hoverable w3-white">
+                {% for answer in answers %}
+                {% if answer.teacher.name.first_name == user.first_name %}
+                {% if answer.exercise.is_grade2 %}   
+                    {% if answer.name.student_name.first_name %}
+                        {% include 'teachers/_answersstudents.html' %}
+                    {% endif %}   
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+                </ul>
+        </div>
+   
+{% endif %}  
+{% endif %}
+
+<!-- grade 1-->
+{% if user.is_grade1 %}
+{% if user.is_teacher %}
+
+
+    <div class="w3-white w3-margin-top w3-hide-small">
+            <ul class="w3-ul w3-hoverable w3-white">
+                {% for answer in answers %}
+                {% if answer.teacher.name.first_name == user.first_name %}
+                {% if answer.exercise.is_grade1 %}   
+                    {% if answer.name.student_name.first_name %}
+                        {% include 'teachers/_answersstudents.html' %}
+                    {% endif %}   
+                {% endif %}
+                {% endif %}
+            {% endfor %}
+                </ul>
+        </div>
+   
+{% endif %}
+{% endif %}
+
+</div>
+<script>
+    function myFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>

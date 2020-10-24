@@ -14,7 +14,7 @@ from accounts.models import CustomUser
 # Create your models here.
 class Notice(models.Model):
     title = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=250, blank=False, null=True, unique_for_date='date_posted', help_text="repeat the title here replace spaces with dashes e.g. class alert = class-alert")
+    #slug = models.SlugField(max_length=250, blank=False, null=True, unique_for_date='date_posted', help_text="repeat the title here replace spaces with dashes e.g. class alert = class-alert")
     notice = RichTextField(blank=False, null=True)
     author =  models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, related_name="notice_author", blank=False, null=True)
     created_by = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING, blank=False, null=True)
@@ -31,7 +31,7 @@ class Notice(models.Model):
 
     
     def get_absolute_url(self):
-        return reverse('notice-detail', kwargs={'slug': self.slug})
+        return reverse('notice-detail', kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.title

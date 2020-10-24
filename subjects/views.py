@@ -7,6 +7,7 @@ from accounts.models import CustomUser
 from .models import Exercise, Answer
 from grades.models import Grade
 from subjects.models import *
+from teachers.models import *
 from django.contrib import messages
 from django.contrib.auth.models import User
 from accounts.models import CustomUser
@@ -19,11 +20,8 @@ from django.views.generic import (
 )
 
 
-
-
 class SubjectListView(ListView):
     model = Subject
-    template_name = 'Subjects/subjects.html' 
     context_object_name = 'subjects'
     ordering = ['-date_posted']
     paginate_by = 1
@@ -56,6 +54,7 @@ class SubjectCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+
 class SubjectUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Subject
     fields = '__all__'
@@ -81,13 +80,21 @@ class SubjectDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
+
+class UserSubjectListView(ListView):
+    model = Subject
+    template_name = 'user_subjects.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'subjects'
+    paginate_by = 5
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Subject.objects.filter(created_by=user).order_by('-date_posted')   
+  
+
 #topics
-
-
-
 class TopicListView(ListView):
     model = Topic
-    template_name = 'Topics/topic.html' 
     context_object_name = 'topics'
     ordering = ['-date_posted']
     paginate_by = 1
@@ -145,7 +152,34 @@ class TopicDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
             return True
         return False
 
+class UserTopicListView(ListView):
+    model = Subject
+    template_name = 'user_topics.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'topics'
+    paginate_by = 5
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Topic.objects.filter(created_by=user).order_by('-date_posted')   
+  
+
 # lesson
+
+class LessonListView(ListView):
+    model = Topic 
+    context_object_name = 'lessons'
+    ordering = ['-date_posted']
+    paginate_by = 100
+
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Lessons'] = Lesson.objects.all()
+        context['mvp_lessons'] = Lesson.objects.all().filter(is_mvp=True)
+        context['topics'] = Topic.objects.all()
+        return context
+
+
 class LessonDetailView(DetailView):
     model = Lesson
 
@@ -168,17 +202,94 @@ class LessonDetailView(DetailView):
     
         return context
 
+class LessonCreateView(LoginRequiredMixin, CreateView):
+    model = Topic
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
 
 
-class ExerciseList(generic.ListView):
+class LessonUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Lesson
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == lesson.created_by:
+            return True
+        return False
+
+
+class LessonDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Lesson
+    success_url = '/'
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == lesson.created_by:
+            return True
+        return False
+
+class UserLessonListView(ListView):
+    model = Lesson
+    template_name = 'user_lessons.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'lessons'
+    paginate_by = 100
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Lesson.objects.filter(created_by=user).order_by('-date_posted')   
+  
+# Exercise
+class ExerciseListView(generic.ListView):
     queryset = Exercise.objects.filter(is_published=True).order_by("-created_on")
     template_name = "exercise_list.html"
-    paginate_by = 10
+    paginate_by = 100
 
 
-class ExerciseDetail(generic.DetailView):
+class ExerciseDetailView(generic.DetailView):
     model = Exercise
     template_name = 'exercise_detail.html'
+
+class ExerciseCreateView(LoginRequiredMixin, CreateView):
+    model = Exercise
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+
+class ExerciseUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Exercise
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == exercise.created_by:
+            return True
+        return False
+
+
+class ExerciseDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Exercise
+    success_url = '/'
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == exercise.created_by:
+            return True
+        return False
 
 
 def exercise(request, slug):
@@ -208,10 +319,6 @@ def exercise(request, slug):
     }
     return render(request, "exercises/exercise.html", context )
 
-
-
-
-# exercise
 class UserExerciseListView(generic.ListView):
 
     model = Exercise
@@ -229,8 +336,28 @@ class UserExerciseListView(generic.ListView):
     def get_queryset(self):
         user = get_object_or_404(CustomUser, username=self.kwargs.get('username'))
         return Exercise.objects.filter(teacher=user).order_by("-created_on") 
+
+class UserAnswersListView(ListView):
+    model = Exercise
+    template_name = 'user_Answers.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'Answers'
+    paginate_by = 100
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Answer.objects.filter(created_by=user).order_by('-date_posted')  
           
 # Answer
+class AnswerListView(ListView):
+    model = Answer
+    template_name = 'answers/answers.html' 
+    context_object_name = 'answers'
+    ordering = ['-date_posted']
+    paginate_by = 100
+
+    
+
+
 def answer(request, answer_id):
   answer = get_object_or_404(Answer, pk=answer_id)
   queryset = Exercise.objects.filter(status=1).order_by("-created_on")
@@ -246,7 +373,7 @@ def answer(request, answer_id):
 
 class AnswerCreateView(LoginRequiredMixin, CreateView):
     model = Answer
-    fields = '__all__'
+    fields = 'name, teacher, exercise, answers_typed'
 
     def form_valid(self, form):
         form.instance.name = self.request.user
@@ -265,18 +392,33 @@ class AnswerDetailView(DetailView):
     model = Answer
 
 
+"""
+class AnswerUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Answer
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.name = self.request.user 
+        return super().form_valid(form)
+
+    def test_func(self):
+        answer = self.get_object()
+        if self.request.user == answer.name: 
+            return True
+        return False
+"""
 
 class AnswerUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Answer
     fields = '__all__'
 
     def form_valid(self, form):
-        form.instance.name = self.request.user
+        form.instance.teacher.name.first_name = self.request.user.first_name 
         return super().form_valid(form)
 
     def test_func(self):
         answer = self.get_object()
-        if self.request.user == answer.name:
+        if self.request.user.first_name == answer.teacher.name.first_name:
             return True
         return False
 
@@ -285,7 +427,78 @@ class AnswerDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = 'central'
 
     def test_func(self):
-        post = self.get_object()
-        if self.request.user == answer.name:
+        answer = self.get_object()
+        if self.request.user.first_name == answer.teacher.name.first_name:
             return True
         return False
+
+#todays
+class TodayListView(ListView):
+    model = Today 
+    context_object_name = 'todays'
+    ordering = ['-date_posted']
+    paginate_by = 1
+
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Lessons'] = Lesson.objects.all()
+        context['mvp_lessons'] = Lesson.objects.all().filter(is_mvp=True)
+        context['topics'] = Topic.objects.all()
+        return context
+
+
+class TodayDetailView(DetailView):
+    model = Today
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['Lessons'] = Lesson.objects.all()
+        context['topics'] = Topic.objects.all()
+        return context
+
+
+class TodayCreateView(LoginRequiredMixin, CreateView):
+    model = Today
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+
+class TodayUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Today
+    fields = '__all__'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == today.created_by:
+            return True
+        return False
+
+
+class TodayDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Today
+    success_url = '/'
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == today.created_by:
+            return True
+        return False
+
+class UserTodayListView(ListView):
+    model = Subject
+    template_name = 'user_todays.html'  # <app>/<model>_<viewtype>.html
+    context_object_name = 'todays'
+    paginate_by = 5
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Today.objects.filter(created_by=user).order_by('-date_posted')   
+  

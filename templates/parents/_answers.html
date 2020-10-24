@@ -10,9 +10,11 @@
                     {% for answer in answers %}
 
                         {% if answer.exercise.is_grade8 %}   
-                                {% if answer.name.first_name %}
+                        {% if answer.name.contact_parent.name.first_name == user.first_name %}
+                        {% if answer.name.student_name.first_name %}
                                   {% include 'partials/_answers.html' %}
                                 {% endif %}
+                        {% endif %}
                         {% endif %}
                     {% endfor %}
                 </ul>
@@ -27,11 +29,13 @@
     <div class="w3-white w3-margin-top ">
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
+                    {% if answer.name.contact_parent.name.first_name == user.first_name %}
                         {% if answer.exercise.is_grade7 %}   
                             {% if answer.name.first_name %}
                                 {% include 'partials/_answers.html' %}
                             {% endif %}    
                         {% endif %}
+                        {% endif %} 
                     {% endfor %}
                 </ul>
         </div>
@@ -44,11 +48,13 @@
     <div class="w3-white w3-margin-top w3-hide-small">
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
+                    {% if answer.name.contact_parent.name.first_name == user.first_name %}
                         {% if answer.exercise.is_grade6 %}   
                             {% if answer.name.first_name %}
                                 {% include 'partials/_answers.html' %}
                             {% endif %} 
                         {% endif %}
+                        {% endif %} 
                     {% endfor %}
                 </ul>
         </div>
@@ -61,11 +67,13 @@
     <div class="w3-white w3-margin-top w3-hide-small">
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
+                    {% if answer.name.contact_parent.name.first_name == user.first_name %}
                         {% if answer.exercise.is_grade5 %}   
                             {% if answer.name.first_name %}
                                 {% include 'partials/_answers.html' %}
                             {% endif %} 
                         {% endif %}
+                        {% endif %} 
                     {% endfor %}
                 </ul>
         </div>
@@ -78,11 +86,13 @@
     <div class="w3-white w3-margin-top w3-hide-small">
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
+                    {% if answer.name.contact_parent.name.first_name == user.first_name %}
                         {% if answer.exercise.is_grade4 %}   
                             {% if answer.name.first_name %}
                                 {% include 'partials/_answers.html' %}
                             {% endif %} 
                         {% endif %}
+                        {% endif %} 
                     {% endfor %}
                 </ul>
         </div>
@@ -99,11 +109,13 @@
         </div>
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
+                    {% if answer.name.contact_parent.name.first_name == user.first_name %}
                         {% if answer.exercise.is_grade3 %}   
                             {% if answer.name.first_name %}
                                 {% include 'partials/_answers.html' %}
                             {% endif %}     
                         {% endif %}
+                        {% endif %} 
                     {% endfor %}
                 </ul>
         </div>
@@ -120,12 +132,14 @@
         </div>
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
+                    {% if answer.name.contact_parent.name.first_name == user.first_name %}
                         {% if answer.exercise.is_grade2 %}   
-                            {% if answer.name.first_name %}
+                            {% if answer.name.student_name.first_name %}
                                 {% include 'partials/_answers.html' %}
                             {% endif %}   
                         {% endif %}
-                    {% endfor %}
+                    {% endif %} 
+                    {% endfor %} 
                 </ul>
         </div>
     
@@ -137,9 +151,11 @@
     <div class="w3-white w3-margin-top w3-hide-small">
             <ul class="w3-ul w3-hoverable w3-white">
                     {% for answer in answers %}
+                    {% if answer.name.contact_parent.name.first_name == user.first_name %}
                         {% if answer.name.first_name %}
                             {% include 'partials/_answers.html' %}
-                        {% endif %} 
+                        {% endif %}
+                    {% endif %}  
                     {% endfor %}
                 </ul>
         </div>

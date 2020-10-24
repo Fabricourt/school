@@ -8,7 +8,7 @@ class SubjectAdmin(admin.ModelAdmin):
   list_filter = ('subject_name', 'created_by',)  
   list_editable = ('is_published',)
   search_fields = ('subject_name', 'created_by',  )
-  prepopulated_fields = {"slug": ('subject_name',)}
+  #prepopulated_fields = {"slug": ('subject_name',)}
   list_per_page = 25
 
 admin.site.register(Subject, SubjectAdmin)
@@ -20,7 +20,7 @@ class LessonAdmin(admin.ModelAdmin):
   list_display_links = ('image_preview', 'lesson_title', )
   list_filter = ('subject', 'lesson_title', 'grade_name', )
   search_fields = ('subject',  'lesson_title', 'grade_name',)
-  prepopulated_fields = {"slug": ('lesson_title',)}
+  #prepopulated_fields = {"slug": ('lesson_title',)}
   list_per_page = 25
 
 readonly_fields = ('image_preview',)
@@ -41,7 +41,7 @@ class TopicAdmin(admin.ModelAdmin):
   list_display_links = ('title',)
   list_filter = ('subject', 'title', )
   search_fields = ('subject',  'title',)
-  prepopulated_fields = {"slug": ('title',)}
+  #prepopulated_fields = {"slug": ('title',)}
   list_per_page = 25
 
 admin.site.register(Topic, TopicAdmin)
@@ -70,7 +70,7 @@ class ExerciseAdmin(admin.ModelAdmin):
   list_filter = ('classname', 'subject', 'topic',  'teacher',)
   list_editable = ('is_published', )
   search_fields = ('classname', 'subject', 'topic', 'lesson', 'teacher', 'title',)
-  prepopulated_fields = {"slug": ('title',)}
+  #prepopulated_fields = {"slug": ('title',)}
   list_per_page = 25
   inlines = [AnswerInline]
 
