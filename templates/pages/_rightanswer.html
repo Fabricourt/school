@@ -1,7 +1,7 @@
 {% load static %}
- <div class="card  w3-vivid-purple w3-margin-top">
-     <h3 class="w3-center">Teachers Answers</h3>
- </div>
+<button onclick="myFunction('teachersanswers')" class="w3-btn w3-block w3-margin-top w3-large w3-vivid-purple w3-left-align">Teachers Answers</button>
+
+<div id="teachersanswers" class=" w3-hide">
  <!--grade 8-->
     {% if user.is_grade8 %}
 <div class="card  w3-2018-crocus-petal w3-margin-top">
@@ -194,3 +194,4 @@
     </ol>
 </div>
    {% endif %}
+</div>

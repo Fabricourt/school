@@ -1,9 +1,11 @@
 {% load static %}
 
- <div class="card  w3-vivid-purple w3-margin-top">
+ <div onclick="myFunction('pca')" class="card  w3-vivid-purple w3-margin-top pointer">
      <h3 class="w3-center">Teachers Answers</h3>
      <p class="w3-small w3-text-white w3-padding">Here you can find the teachers answers to exercises given. You can compare to have a better understanding of how well your child is perfoming</p>
- </div>
+
+</div>
+ <div id="pca" class="w3-hide">
  {% for student  in parent.student_set.all %}
  <!--grade 8-->
 {% if student.student_name.is_grade8 %}
@@ -122,3 +124,16 @@
 </div>
    {% endif %}
 {% endfor %}
+
+</div>
+
+<script>
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+    </script>

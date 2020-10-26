@@ -9,7 +9,7 @@
                 <div class="w3-display-container">
                 
                 {% if grade.classteacher.image %}
-                <img src="{{ grade.classteacher.image.url }}" style="width:150px; height: 50px;" alt="Avatar">
+                <img src="{{ grade.classteacher.image.url }}" style="width:100%; height: 200px;" alt="Avatar">
                 {% endif %}
         
                 <div class="w3-display-bottomleft w3-orange w3-block w3-opacity w3-container ">
@@ -217,12 +217,10 @@
 
 <!--Notice-->
 <div>
-       
-            <div class="w3-container w3-white w3-border w3-margin-bottom   ">
-                  <h2 class="w3-text-white w3-food-spearmint w3-block w3-padding ">
-                        <i class="fa fa-circle fa-fw w3-text-green w3-xxlarge"></i>
-                        Notice
-                  </h2>  
+      <button onclick="myFunction('notices')" class="w3-btn w3-block w3-margin-top w3-large w3-food-tomato w3-left-align">Announcement!</button>
+            
+      <div class=" w3-white  w3-hide w3-margin-top" id='notices'>
+                 
                   {% if user.is_grade8 %}
                         {% if noticeg8  %}     
                               {% for notice in noticeg8 %}
@@ -286,18 +284,20 @@
 </div>
 <!-- end Notice-->
 
-
+<div>
+      {% include 'students/_messages.html' %}
+    </div>
 
 <!--Homework-->
 <div>
       {% include 'pages/_homework.html' %}
 </div>
 
-<div class="w3-hide-small">
+<div class="">
       {% include 'pages/_answers.html' %}
 </div>
 
-<div class="w3-hide-small">
+<div class="">
       {% include 'pages/_rightanswer.html' %}
 </div>
 <!--end homework-->
@@ -311,6 +311,15 @@
 <!--end archive-->
 
 
-
+<script>
+      function myFunction(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+        } else { 
+          x.className = x.className.replace(" w3-show", "");
+        }
+      }
+      </script>
 
   <br>

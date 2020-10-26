@@ -17,7 +17,16 @@
                         
                         <li class="breadcrumb-item">
                           <a href="{% url 'central' %}">
-                            <i class=""></i>Back To Staffroom</a>
+                            <i class=""></i>
+                            {% if user.is_admin %}
+                            Back To Admin
+                            {% endif %}
+
+                            {% if user.is_teacher %}
+                            Back To Staffroom
+                            {% endif %}
+
+                          </a>
                         </li>
                         <li class="breadcrumb-item active"> Create</li>
                       </ol>

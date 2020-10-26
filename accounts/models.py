@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.html import mark_safe
+from django.urls import reverse
 from PIL import Image
 
 
@@ -29,7 +30,7 @@ class CustomUser(AbstractUser):
     is_grade6 = models.BooleanField(default=False)
     is_grade7 = models.BooleanField(default=False)
     is_grade8 = models.BooleanField(default=False)
-    
+   
   
     @property
     def image_preview(self):
@@ -39,6 +40,9 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.username
+    
+    def get_absolute_url(self):
+        return reverse('customuser-detail', kwargs={'pk': self.pk})
 
     def save(self, **kwargs):
         super().save()

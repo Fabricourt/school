@@ -5,7 +5,7 @@
     <div class="w3-white">
         <ol  >
             {% for teacher in teachers %}
-                {% if user.is_teacher %}
+                {% if user.is_admin %}
                         {% if teacher.name.first_name %}
                             <li class="w3-padding-16 w3-tiny w3-border-bottom ">
                                 {% if teacher.name.image %}

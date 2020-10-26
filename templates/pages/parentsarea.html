@@ -1,6 +1,7 @@
 {% load static %}
 <style>
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+.pointer {cursor: pointer;}
 </style>
 
 
@@ -59,14 +60,18 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
           {% include 'parents/_homework.html' %}
         </div>
 
-        <div class="w3-border w3-margin-top w3-margin-bottom ">
+        <div class=" w3-margin-top w3-margin-bottom ">
           <p class="w3-container w3-small">
             <span class="w3-text-green w3-border-green w3-border-bottom ">
               Answers to done exercises are here 
             </span>
-            <br>if no exercises are here, consider following up on todays lessons and exercises to confirm and help us all todays exercises are completed.
+            <br>if no exercises answers are here, consider following up on todays lessons and exercises to confirm your child has done and  completed all exercises.
           </p>
-          {% include 'parents/_answers.html' %}
+
+          <button onclick="myFunction('parentanswer')" class="w3-btn w3-block w3-win8-cobalt w3-left-align">Exercise Answers</button>
+            <div id="parentanswer" class="w3-hide">
+            {% include 'parents/_answers.html' %}
+            </div>
           <br>
         </div>
 
@@ -132,3 +137,13 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
   <a href="" class="w3-hover-text-amber"><i class="fa fa-instagram w3-text-aqua "></i>|Instagram</a>
 </footer>
 
+<script>
+  function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else { 
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+  </script>

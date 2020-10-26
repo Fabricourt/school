@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load humanize %}
+{% load crispy_forms_tags %}
+{% block content %}
+<br><br><br><br><br><br>
+<div class="w3-display-container">
+    <div class="w3-display-middle w3-block">
+        <center>
+            <h1>
+                Thank You For Registering to Join us {{user.first_name}} {{user.last_name}}
+            </h1>
+            <h4>Your Registration has been recieved and it will be processed </h4>
+            <h6>Note if you continue to see this message beyond 1 day, contact the school administration</h6>
+        </center>
+    </div>
+</div>
+
+{% endblock %}

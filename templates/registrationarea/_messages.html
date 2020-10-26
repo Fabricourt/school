@@ -1,0 +1,42 @@
+<button onclick="myFunction('contactmessage')" class="w3-btn w3-block w3-border-yellow  w3-large w3-yellow w3-left-align">Site Messages
+</button>
+
+<div id="contactmessage" class="w3-container w3-hide">
+<div class="w3-margin-top">
+{% for contact in contact %}
+<div onclick="document.getElementById('{{contact.id}}').style.display='block'" class="w3-border-bottom w3-border-blue">
+  
+  {{contact.name}}
+   {% if contactus.myname %}
+   [--{{contactus.myname}}--]
+   {% endif %}
+  
+</div>
+</div> 
+     <br>
+
+<div id="{{contact.id}}" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('{{contact.id}}').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        {{ contact.name }} | {{contact.contact_date}} <br>
+        {{contact.email}} <br>
+        {{contact.message}}
+      </div>
+    </div>
+  </div>
+
+
+
+{% endfor %}
+</div>
+<script>
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+</script>

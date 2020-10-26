@@ -1,6 +1,8 @@
 {% load static %}
-<div class="w3-container w3-padding-16 w3-border  w3-margin-top w3-ios-light-grey">
-    <header><h4>Past Week lessons </h4></header>
+<button onclick="myFunction('pastlessons')" class="w3-btn w3-block w3-margin-top w3-ios-light-grey w3-left-align">Past Week Lessons</button>
+
+<div class=" w3-hide  w3-margin-top w3-ios-light-grey" id="pastlessons" >
+   
     <div class="w3-container  w3-small">
 
         <!--grade 8-->
@@ -110,3 +112,14 @@
 
     </div>
 </div>
+
+<script>
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+    </script>

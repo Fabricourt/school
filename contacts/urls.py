@@ -21,4 +21,5 @@ urlpatterns = [
     #path('contactus/<int:pk>/update/', ContactusUpdateView.as_view(), name='Contactus-update'),
     #path('contactus/<int:pk>/delete/', ContactusDeleteView.as_view(), name='Contactus-delete'),
     #path('<int:Contactus_id>', views.Contactus, name='Contactus'),
+   
 ]   

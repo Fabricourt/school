@@ -1,0 +1,62 @@
+<button onclick="myFunction('notices')" class="w3-btn w3-block w3-margin-top w3-large w3-food-tomato w3-left-align">Announcement!</button>
+            
+<div class=" w3-white  w3-hide w3-margin-top" id='notices'>
+           
+            {% if user.is_grade8 %}
+                  {% if noticeg8  %}     
+                        {% for notice in noticeg8 %}
+                              {% include 'pages/_notice.html' %}
+                        {% endfor %}
+                  {% endif %}
+            {% endif %}
+
+            {% if user.is_grade7 %}
+                  {% if noticeg7  %}     
+                        {% for notice in noticeg7 %}
+                              {% include 'pages/_notice.html' %}
+                        {% endfor %}
+                  {% endif %}
+            {% endif %}
+            {% if user.is_grade6 %}
+                  {% if noticeg6  %}     
+                        {% for notice in noticeg6 %}
+                              {% include 'pages/_notice.html' %}
+                        {% endfor %}
+                  {% endif %}
+            {% endif %}
+            {% if user.is_grade5 %}
+                  {% if noticeg5  %}     
+                        {% for notice in noticeg5 %}
+                              {% include 'pages/_notice.html' %}
+                        {% endfor %}
+                  {% endif %}
+            {% endif %}
+            {% if user.is_grade4 %}
+                  {% if noticeg4  %}     
+                        {% for notice in noticeg4 %}
+                              {% include 'pages/_notice.html' %}
+                        {% endfor %}
+                  {% endif %}
+            {% endif %}
+            {% if user.is_grade2 %}
+                  {% if noticeg2  %}     
+                        {% for notice in noticeg2 %}
+                              {% include 'pages/_notice.html' %}
+                        {% endfor %}
+                  {% endif %}
+            {% endif %}
+            {% if user.is_grade2 %}
+                  {% if noticeg2  %}     
+                        {% for notice in noticeg2 %}
+                              {% include 'pages/_notice.html' %}
+                        {% endfor %}
+                  {% endif %}
+            {% endif %}
+            {% if user.is_grade1 %}
+                  {% if noticeg1  %}     
+                        {% for notice in noticeg1 %}
+                              {% include 'pages/_notice.html' %}
+                        {% endfor %}
+                  {% endif %}
+            {% endif %}
+      </div>

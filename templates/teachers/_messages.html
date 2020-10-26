@@ -1,0 +1,43 @@
+<button onclick="myFunction('teachermessage')" class="w3-btn w3-block w3-border-yellow  w3-large w3-yellow w3-left-align">Messages
+</button>
+
+<div id="teachermessage" class="w3-container w3-hide">
+{% for contactus in contactus %}
+{% if contactus.teacher.name.first_name == user.first_name %}
+{% if contactus.teacher.name == contactus.teacher.name %}
+<div onclick="document.getElementById('{{contactus.heading}}').style.display='block'" class="w3-border-bottom w3-border-blue">
+   {{contactus.heading}}
+   {% if contactus.myname %}
+   [--{{contactus.myname}}--]
+   {% endif %}
+   
+</div>
+     <br>
+
+<div id="{{contactus.heading}}" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('{{contactus.heading}}').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        {{ contactus.myname.student_name.first_name }} {{ contactus.myname.student_name.last_name }} | {{contactus.contact_date}}<br>
+        {{contactus.heading}} <br>
+        {{contactus.message}}
+      </div>
+    </div>
+  </div>
+
+
+{% endif %}
+
+{% endif %}
+{% endfor %}
+</div>
+<script>
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+</script>

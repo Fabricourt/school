@@ -31,6 +31,6 @@ class Student(models.Model):
       return self.student_name.first_name
 
     def get_absolute_url(self):
-        return reverse('teacher', kwargs={'pk': self.pk})
+        return reverse('student-detail', kwargs={'pk': self.pk})
 
  

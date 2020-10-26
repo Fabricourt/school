@@ -1,9 +1,10 @@
 {% load static %}
-<div class="w3-container w3-padding-16 w3-border  w3-margin-top w3-ios-light-grey">
+<div onclick="myFunction('archive')" class="pointer w3-container w3-padding-16 w3-border  w3-margin-top w3-ios-light-grey">
     <header><h4>Past Week lessons </h4></header>
     <p class="w3-small"> In your childs account, you can select lessons missed, to ensure your child is not left behind, or do it here for them if they are unable</p>
-    <div class="w3-container  w3-small">
-        
+   
+</div>    
+    <div id="archive" class="w3-hide w3-ios-light-grey w3-small">
     {% for student  in parent.student_set.all %}
         <!--grade 8-->
         {% if student.student_name.is_grade8 %}
@@ -111,7 +112,7 @@
             {% endfor %}
         {% endif %}
         {% endfor %}
-    </div>
+   
 
     <header class="w3-hover-orange w3-button w3-hover-border-orange w3-dark-gray w3-border w3-hover-text-orange w3-block">
         <a href="#lessons" class="w3-padding w3-hover-text-white  w3-text-orange"> Find All Other Lessons Here</a>

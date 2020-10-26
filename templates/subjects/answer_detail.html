@@ -41,23 +41,23 @@
                         {% else %}
                         {% if user.is_teacher %}
                         {% if answer.unmarked %}
-                        <h1 class="w3-padding-64 w3-xxlarge w3-center w3-text-blue">Your yet to mark
-                            <span class="w3-tag w3-red">{{answer.name}} </span> answer
+                        <h1 class="w3-padding w3-xxlarge w3-center w3-text-blue">Your yet to mark
+                            <span class="w3-tag w3-red">{{answer.name}}s' </span> answer
                         <p class="w3-large w3-border-top w3-border-green w3-text-green w3-padding">Below 
                         {% else %}
-                        <h1 class="w3-padding-64 w3-xxlarge w3-center w3-text-green">Do you wish to remark the <span class="w3-tag w3-green">{{answer.name}}</span> answer <br> 
+                        <h1 class="w3-padding w3-xxlarge w3-center w3-text-green">Do you wish to remark  <span class="w3-tag w3-green">{{answer.name}}s'</span> answer <br> 
                             
-                        <p class="w3-large w3-border-top w3-border-green w3-text-green w3-padding">Below </p>
+                        <p class="w3-large w3-border-top w3-border-green w3-text-green ">Below </p>
                        
                         {% endif %}
                         {% endif %}
                         {% endif %}
                                 
-                            <span class="w3-tag">current answer status --></span>  
+                            <span class="w3-tag w3-large">current answer status --></span>  
                                             {% if answer.unmarked %}
-                                            <span class="w3-red   ">-Unmarked-</span>
+                                            <span class="w3-red  w3-large ">-Unmarked-</span>
                                             {% else %}
-                                                <span class="w3-green  ">--Marked--</span>
+                                                <span class="w3-green  w3-large">--Marked--</span>
                                             {% endif %}    
                         </p>
                         </h1>

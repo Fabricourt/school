@@ -23,6 +23,7 @@ class ContactusAdmin(admin.ModelAdmin):
 
 admin.site.register(Contactus, ContactusAdmin)
 
+admin.site.register(Comment)
 
 class TestmonialAdmin(admin.ModelAdmin):
   list_display = ( 'parent_name',  'contact_date', 'is_published')

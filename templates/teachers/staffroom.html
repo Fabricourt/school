@@ -23,7 +23,7 @@
               </div>
             {% endif %} 
             </div>
-            <div class="w3-container w3-padding w3-white w3-text-grey">
+            <div class="w3-container  w3-margin-bottom w3-padding w3-white w3-text-grey">
                 <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-green w3-large w3-card-4"></i>{{teacher.name.title|capfirst}}</p>
                 <p><i class="fa fa-home fa-fw w3-margin-right w3-green w3-large w3-card-4"></i>{{teacher.name.address}}</p>
                 <p><i class="fa fa-envelope fa-fw w3-margin-right w3-green w3-large w3-card-4"></i>{{teacher.name.email}}</p>
@@ -33,7 +33,12 @@
                 
             {% endif %} 
             {% endfor %}
-    
+            <div class="w3-margin-bottom">
+              {% include 'teachers/_notice.html' %}
+            </div>
+            <div class="w3-margin-bottom">
+              {% include 'teachers/_messages.html' %}
+            </div>
             <div class='w3-margin-bottom'>
               {% include 'teachers/_classmembers.html' %}
             </div>
@@ -78,12 +83,14 @@
               <br>
             </div>
             <hr>
-            <div class="w3-container w3-hide w3-margin-bottom">
+            <div class="w3-container w3-margin-bottom">
               <h5 class="w3-opacity"><b>+ Add</b></h5>
-              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>add Notices  here</h6>
-              <a href=""><button class="w3-win8-emerald  w3-card-4 w3-border-green" style="width:130px; margin: 1px;">Notices</button></a>
+              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>add messages here</h6>
+              <a href="{% url 'notice-create' %}"><button class="w3-win8-emerald w3-card-4 w3-border-green" style="width:130px; margin: 1px;">Notices</button></a>
+              <a href="{% url 'contactus-create' %}"><button class="w3-win8-emerald w3-card-4 w3-border-green" style="width:130px; margin: 1px;">Contact us</button></a>
               <br>
             </div>
+
           </div>
     
           <div class="w3-container w3-card w3-white">

@@ -23,6 +23,10 @@
       <a class="w3-bar-item w3-margin-top w3-hover-text-orange " href="{% url 'central' %}">Staffroom </a>
     {% endif %}
 
+    {% if user.is_admin %}
+      <a class="w3-bar-item w3-margin-top w3-hover-text-orange " href="{% url 'central' %}">Admin Front </a>
+    {% endif %}
+
 
     {% if user.is_authenticated %}
       <a href="javascript:{document.getElementById('logout').submit()}" class="w3-button w3-bar-item w3-margin-top w3-right">
@@ -46,12 +50,12 @@
           <i class="fas fa-sign-in-alt w3-hide"></i>Contactus
         </a>
         <div class="w3-dropdown-hover w3-right">
-          <button class="w3-button  w3-margin-top  w3-right">View all lessons</button>
+          <button class="w3-button  w3-margin-top  w3-hide-small w3-right">View all lessons</button>
           <div class="w3-dropdown-content w3-bar-block w3-card-4">
               {% include 'subjects/_subjects.html' %}
           </div>
         </div>
-        <a href="{% url 'central' %}" class="w3-bar-item w3-right w3-margin-top   w3-button">Class</a>
+        <a href="{% url 'central' %}" class="w3-bar-item w3-right w3-margin-top w3-hide-small   w3-button">Class</a>
       {% endif %}
     {% endif %}
    
