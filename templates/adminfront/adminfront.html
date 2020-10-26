@@ -30,20 +30,21 @@
                 <p><i class="fa fa-phone fa-fw w3-margin-right w3-green w3-large w3-card-4"></i>{{user.phone}}</p>
             </div>
             <a href="#messages">
-              <button  class="w3-btn w3-block w3-border-yellow  w3-large w3-yellow w3-left-align">Site Messages
+              <button  class="w3-btn w3-block w3-hide-medium w3-hide-large w3-border-yellow  w3-large w3-yellow w3-left-align">Site Messages & Testmonials
               </button>
             </a>
 
             <div class="w3-margin-bottom">
-              {% include 'teachers/_notice.html' %}
+              {% include 'adminfront/_notice.html' %}
+            </div>
+
+
+            <div class='w3-margin-bottom'>
+              {% include 'adminfront/_classmembers.html' %}
             </div>
     
             <div class='w3-margin-bottom'>
-              {% include 'registrationarea/_classmembers.html' %}
-            </div>
-    
-            <div class='w3-margin-bottom'>
-              {% include 'registrationarea/_teachers.html' %}
+              {% include 'adminfront/_teachers.html' %}
             </div>
     
          
@@ -57,7 +58,18 @@
     
         <!-- Right Column -->
         <div class="w3-twothird">
-        
+          <div class="w3-container w3-margin-bottom w3-card w3-white" id='messages'>
+            <h2 class="w3-text-green w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xlarge w3-text-green"></i>Messages</h2>
+            <div class="">
+              <div class="w3-margin-bottom">
+                {% include 'adminfront/_messages.html' %}
+              </div>
+              
+            <div class="w3-margin-bottom">
+              {% include 'adminfront/_testmonial.html' %}
+            </div>
+          </div>
+          </div>
           <div class="w3-container w3-card w3-white w3-margin-bottom">
             <h2 class="w3-text-green w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right  w3-xxlarge w3-text-green"></i><b>Registration Area</b></h2>
             <div class="w3-container">
@@ -92,15 +104,9 @@
               <a href=""><button class="w3-win8-emerald  w3-card-4 w3-border-green w3-hide" style="width:130px; margin: 1px;">Notices</button></a>
               <br>
             </div>
-          </div>
+          
     
-          <div class="w3-container w3-card w3-white" id='messages'>
-            <h2 class="w3-text-green w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xlarge w3-text-green"></i>Messages</h2>
-            <div class="">
-              <div class="w3-margin-bottom">
-                {% include 'registrationarea/_messages.html' %}
-              </div>
-          </div>
+        
     
         <!-- End Right Column -->
        </div>

@@ -1,0 +1,45 @@
+<button onclick="myFunction('testmonialmessage')" class="w3-btn w3-block w3-border-blue  w3-large w3-win8-cobalt w3-left-align">Site Testmonials
+</button>
+
+<div id="testmonialmessage" class="w3-container w3-hide">
+<div class="w3-margin-top">
+{% for testmonial in testmonials %}
+<div onclick="document.getElementById('{{testmonial.id}}').style.display='block'" class="w3-border-bottom w3-border-blue">
+  {{testmonial.parent_name.name.first_name|capfirst}} {{testmonial.parent_name.name.last_name|capfirst}}
+  <a href="{% url 'testmonial-update' testmonial.id %}" class="w3-right w3-text-blue">
+      {% if testmonial.is_published == True %}
+        Deactivate 
+      {% else %}
+        Activate
+      {% endif %}
+  </a>
+</div>
+
+     <br>
+
+<div id="{{testmonial.id}}" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <span onclick="document.getElementById('{{testmonial.id}}').style.display='none'" class="w3-button w3-display-topright w3-large w3-metro-darken w3-circle">&times;</span>
+        <h4 class="w3-tag w3-blue w3-block">Testmonial</h4>
+        {{testmonial.parent_name.name.first_name|capfirst}} | {{testmonial.contact_date}} <br>
+        {{testmonial.parent_name.name.email}}  | {{testmonial.parent_name.name.phone}}<br>
+        {{testmonial.message}}
+      </div>
+    </div>
+  </div>
+
+
+
+{% endfor %}
+</div>
+<script>
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else { 
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+</script>

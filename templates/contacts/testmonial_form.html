@@ -14,8 +14,14 @@
                     <nav aria-label="breadcrumb ">
                       <ol class="">
                         <li class="breadcrumb-item">
+                          {% if user.is_admin %}
+                          <a href="{% url 'central' %}">
+                            <i class=""></i>Go Back</a>
+                          {% else %}
                           <a href="{% url 'index' %}">
                             <i class=""></i>Back To Home page</a>
+                          {% endif %}
+
                         </li>
                         <li class="breadcrumb-item active"> Create</li>
                       </ol>

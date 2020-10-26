@@ -56,5 +56,20 @@ class TestmonialCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+class TestmonialUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Testmonial
+    fields = '__all__'
+    success_url = '/central'
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user.is_admin:
+            return True
+        return False
+
 
    

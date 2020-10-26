@@ -7,9 +7,7 @@
 <div onclick="document.getElementById('{{contact.id}}').style.display='block'" class="w3-border-bottom w3-border-blue">
   
   {{contact.name}}
-   {% if contactus.myname %}
-   [--{{contactus.myname}}--]
-   {% endif %}
+
   
 </div>
 </div> 
@@ -18,7 +16,8 @@
 <div id="{{contact.id}}" class="w3-modal">
     <div class="w3-modal-content">
       <div class="w3-container">
-        <span onclick="document.getElementById('{{contact.id}}').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+        <span onclick="document.getElementById('{{contact.id}}').style.display='none'" class="w3-button w3-large w3-circle w3-metro-darken w3-display-topright">&times;</span>
+        <h4 class="w3-tag w3-yellow w3-block">Contact Message</h4>
         {{ contact.name }} | {{contact.contact_date}} <br>
         {{contact.email}} <br>
         {{contact.message}}

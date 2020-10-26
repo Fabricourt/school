@@ -103,5 +103,4 @@ class Testmonial(models.Model):
         return self.parent_name.name.first_name
 
 
-    def get_absolute_url(self):
-        return reverse('feedback-detail',  kwargs={'pk': self.pk})
+   

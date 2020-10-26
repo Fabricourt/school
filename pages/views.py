@@ -64,6 +64,7 @@ def central(request):
     subjects = Subject.objects.order_by('date_posted').filter(is_published=True)
     contactus = Contactus.objects.order_by('-contact_date')[:15]
     contact = Contact.objects.order_by('-contact_date')
+    testmonials = Testmonial.objects.order_by('-contact_date')
     teachers = Teacher.objects.order_by('hire_date').filter(is_published=True)
     students = Student.objects.order_by('account_date').filter(is_published=True)
     parents = Parent.objects.order_by('account_date').filter(is_published=True)
@@ -103,6 +104,7 @@ def central(request):
     students1 = CustomUser.objects.filter(is_student=True).filter(is_grade1=True)
 
     context = {
+        'testmonials' : testmonials,
         'contact' : contact,
         'contactus' : contactus,
         'parents' : parents,

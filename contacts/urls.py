@@ -8,6 +8,7 @@ from .views import (
     #UserExerciseListView,
     ContactusCreateView,
     TestmonialCreateView,
+    TestmonialUpdateView,
     #ContactusDeleteView,
     
 )
@@ -17,6 +18,7 @@ urlpatterns = [
     path('contacts', views.contact, name='contact'),
     path('testmonial/new/', TestmonialCreateView.as_view(), name='testmonial-create'),
     path('contactus/new/', ContactusCreateView.as_view(), name='contactus-create'),
+    path('testmonial/<int:pk>/update/', TestmonialUpdateView.as_view(), name='testmonial-update'),
     path('contactus/<int:pk>/', ContactusDetailView.as_view(), name='contactus-detail'),
     #path('contactus/<int:pk>/update/', ContactusUpdateView.as_view(), name='Contactus-update'),
     #path('contactus/<int:pk>/delete/', ContactusDeleteView.as_view(), name='Contactus-delete'),
